@@ -1,7 +1,7 @@
-# Laporan Praktikum Modul X  
-**Nama Modul**
+# Laporan Praktikum Modul 1  
+**Modul 1**
 
-**NAMA - NIM**
+**Ajda Mutiara Zahra - 103112400210**
 
 ---
 
