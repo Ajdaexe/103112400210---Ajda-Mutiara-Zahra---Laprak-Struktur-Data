@@ -3,7 +3,28 @@
 
 ## Dasar Teori
 
-yang panjang dikit
+1. **Aritmatika**  
+   C++ menyediakan operator aritmatika dasar seperti penjumlahan (+), pengurangan (-), perkalian (*), dan pembagian (/). Operator ini digunakan untuk menghitung nilai baru dari variabel.  
+   Contohnya pada `aritmatika.cpp`, variabel `X`, `Y`, `W` digunakan untuk menyimpan angka, lalu dilakukan operasi `(X + Y) / (Y + W)` untuk menghasilkan nilai `Z`.
+
+2. **Fungsi dan Prosedur**  
+   - *Fungsi* adalah blok kode yang mengembalikan nilai. Misalnya `double hitungLuas(double p, double l)` mengembalikan hasil perkalian panjang dan lebar.  
+   - *Prosedur* adalah blok kode yang tidak mengembalikan nilai, tapi hanya menampilkan atau melakukan aksi tertentu. Contohnya `void tampilkanHasil(double p, double l)` hanya mencetak hasil ke layar.  
+   Penggunaan fungsi dan prosedur membantu membuat kode lebih modular dan mudah dibaca.
+
+3. **Kondisi**  
+   Kondisi digunakan untuk membuat keputusan dalam program. Ada beberapa bentuk:  
+   - `if` dan `else` → mengecek syarat tertentu, misalnya menghitung diskon jika pembelian ≥ 100.000.  
+   - `switch` → memilih aksi berdasarkan nilai variabel tertentu. Pada contoh kode, `switch` dipakai untuk menentukan apakah suatu hari adalah hari kerja atau hari libur berdasarkan kode yang diinput.
+
+4. **Perulangan**  
+   Perulangan memungkinkan program menjalankan instruksi berulang kali.  
+   - `for` → biasanya dipakai jika jumlah perulangan sudah diketahui.  
+   - `while` dan `do-while` → dipakai ketika perulangan bergantung pada kondisi tertentu.  
+   Pada contoh, digunakan `do-while` untuk mencetak teks “bahlil ke-” berulang hingga syarat berhenti terpenuhi.
+
+5. **Struct**  
+   `struct` adalah kumpulan variabel dengan tipe data berbeda yang dikelompokkan dalam satu nama.  
 
 ## Guided
 
