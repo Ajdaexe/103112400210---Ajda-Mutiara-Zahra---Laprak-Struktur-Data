@@ -24,28 +24,25 @@ Bahasa C++ merupakan bahasa pemrograman yang mendukung paradigma prosedural dan 
    Program juga bisa menerima input berupa karakter dengan fungsi `getchar()`. 
 
 ## Guided
-### 1. Operasi Aritmatika (aritmatika.cpp)
-Program ini mendemonstrasikan penggunaan **operator aritmatika** di C++.  
-Variabel `X`, `Y`, dan `W` digunakan untuk menyimpan angka. Hasil operasi `(X + Y) / (Y + W)` disimpan ke dalam variabel `Z`.
 
-```cpp
-#include <iostream>
-using namespace std;
-int main()
-{
-    int W, X, Y;
-    float Z;
-    X = 7;
-    Y = 3;
-    W = 1;
-    Z = (X + Y) / (Y + W);
-    cout << "Nilai z = " << Z << endl;
-    return 0;
-} ```
+### 1. Aritmatika
+Saya mengerjakan operasi aritmatika sederhana menggunakan operator `+`, `-`, `*`, dan `/`.
 
-### soal 1
+### 2. Fungsi dan Prosedur
+Saya mengerjakan program yang menggunakan fungsi untuk menghitung luas dan keliling, serta prosedur untuk menampilkan hasil.
 
-aku mengerjakan perulangan
+### 3. Kondisi
+Saya mengerjakan program dengan kondisi `if` dan `switch` untuk menentukan hari kerja atau hari libur.
+
+### 4. Perulangan
+Saya mengerjakan perulangan menggunakan `do-while` untuk mencetak teks berulang kali.
+
+### 5. Struct
+Saya mengerjakan program dengan `struct` untuk menyimpan data mahasiswa (nama, NIM, IPK).
+
+### 6. Input Karakter
+Saya mengerjakan program untuk membaca input berupa karakter dengan `getchar()`.
+
 
 ## Unguided
 
@@ -53,6 +50,15 @@ aku mengerjakan perulangan
 
 copy paste soal nomor 1 disini
 
+```go
+package main
+
+func main() {
+	fmt.Println("Kode kalian disini")
+	fmt.Println("JANGAN MASUKIN >>SCREENSHOT<< KODE KALIAN DISINI")
+	fmt.Println("KALAU ADA -20 POIN LAPRAK")
+}
+```
 
 > Output
 > ![Screenshot bagian x](output/screenshot_soal1.png)
@@ -97,3 +103,4 @@ penjelasan bedanya sesuai soal
 ## Referensi
 
 1. https://en.wikipedia.org/wiki/Data_structure (diakses blablabla)
+
