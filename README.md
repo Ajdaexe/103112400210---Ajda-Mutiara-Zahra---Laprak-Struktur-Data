@@ -176,5 +176,7 @@ Kode di atas digunakan untuk mencetak pola angka simetris dengan tanda * di teng
 
 ## Referensi
 
-1. https://en.wikipedia.org/wiki/Data_structure (diakses blablabla)
+1. https://en.wikipedia.org/wiki/Data_structure
+2. https://osf.io/preprints/vyech/
+3. https://repository.penerbitwidina.com/media/publications/557434-algoritma-dan-struktur-data-39398749.pdf
 
