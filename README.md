@@ -170,7 +170,7 @@ int  main () {
 ```
 
 > Output
-> ![Screenshot bagian x](images/OUTPUT3)
+> (images/OUTPUT3)
 
 Kode di atas digunakan untuk mencetak pola angka simetris dengan tanda * di tengah. Perulangan mengatur spasi, angka menurun di kiri, bintang di tengah, dan angka naik di kanan. Contohnya, jika n = 3, maka keluar pola Segitiga.
 
