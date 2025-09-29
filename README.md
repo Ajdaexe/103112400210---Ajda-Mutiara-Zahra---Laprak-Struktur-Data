@@ -2,31 +2,46 @@
 <p align="center">Ajda Mutiara Zahra - 103112400210</p>
 
 ## Dasar Teori
+Bahasa C++ merupakan bahasa pemrograman yang mendukung paradigma prosedural dan berorientasi objek. Dalam praktikum ini, konsep dasar yang digunakan meliputi:
 
-1. **Aritmatika**  
-   C++ menyediakan operator aritmatika dasar seperti penjumlahan (+), pengurangan (-), perkalian (*), dan pembagian (/). Operator ini digunakan untuk menghitung nilai baru dari variabel.  
-   Contohnya pada `aritmatika.cpp`, variabel `X`, `Y`, `W` digunakan untuk menyimpan angka, lalu dilakukan operasi `(X + Y) / (Y + W)` untuk menghasilkan nilai `Z`.
+1. **Operator Aritmatika**  
+   Digunakan untuk melakukan perhitungan matematis, misalnya penjumlahan (+), pengurangan (-), perkalian (*), dan pembagian (/).
+   
+3. **Fungsi dan Prosedur**  
+   - *Fungsi* adalah blok kode yang mengembalikan nilai.  
+   - *Prosedur* adalah blok kode yang tidak mengembalikan nilai, hanya menampilkan hasil.
+   - 
+4. **Kondisi (if, else, switch)**  
+   Kondisi digunakan untuk mengambil keputusan dalam program. Contohnya `switch-case` untuk menentukan hari kerja/libur.
 
-2. **Fungsi dan Prosedur**  
-   - *Fungsi* adalah blok kode yang mengembalikan nilai. Misalnya `double hitungLuas(double p, double l)` mengembalikan hasil perkalian panjang dan lebar.  
-   - *Prosedur* adalah blok kode yang tidak mengembalikan nilai, tapi hanya menampilkan atau melakukan aksi tertentu. Contohnya `void tampilkanHasil(double p, double l)` hanya mencetak hasil ke layar.  
-   Penggunaan fungsi dan prosedur membantu membuat kode lebih modular dan mudah dibaca.
+5. **Perulangan (for, while, do-while)**  
+   Perulangan digunakan untuk menjalankan instruksi berulang kali. `do-while` menjamin perintah dijalankan minimal sekali.
 
-3. **Kondisi**  
-   Kondisi digunakan untuk membuat keputusan dalam program. Ada beberapa bentuk:  
-   - `if` dan `else` → mengecek syarat tertentu, misalnya menghitung diskon jika pembelian ≥ 100.000.  
-   - `switch` → memilih aksi berdasarkan nilai variabel tertentu. Pada contoh kode, `switch` dipakai untuk menentukan apakah suatu hari adalah hari kerja atau hari libur berdasarkan kode yang diinput.
+6. **Struct**  
+   `struct` digunakan untuk mengelompokkan variabel dengan tipe berbeda menjadi satu kesatuan, misalnya data mahasiswa.
 
-4. **Perulangan**  
-   Perulangan memungkinkan program menjalankan instruksi berulang kali.  
-   - `for` → biasanya dipakai jika jumlah perulangan sudah diketahui.  
-   - `while` dan `do-while` → dipakai ketika perulangan bergantung pada kondisi tertentu.  
-   Pada contoh, digunakan `do-while` untuk mencetak teks “bahlil ke-” berulang hingga syarat berhenti terpenuhi.
-
-5. **Struct**  
-   `struct` adalah kumpulan variabel dengan tipe data berbeda yang dikelompokkan dalam satu nama.  
+7. **Input Karakter**  
+   Program juga bisa menerima input berupa karakter dengan fungsi `getchar()`. 
 
 ## Guided
+### 1. Operasi Aritmatika (aritmatika.cpp)
+Program ini mendemonstrasikan penggunaan **operator aritmatika** di C++.  
+Variabel `X`, `Y`, dan `W` digunakan untuk menyimpan angka. Hasil operasi `(X + Y) / (Y + W)` disimpan ke dalam variabel `Z`.
+
+```cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+    int W, X, Y;
+    float Z;
+    X = 7;
+    Y = 3;
+    W = 1;
+    Z = (X + Y) / (Y + W);
+    cout << "Nilai z = " << Z << endl;
+    return 0;
+}
 
 ### soal 1
 
