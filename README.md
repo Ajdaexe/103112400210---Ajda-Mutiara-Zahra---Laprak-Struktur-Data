@@ -78,7 +78,7 @@ int main (){
 ```
 
 > Output
-> ![Screenshot bagian x](images/Screenshot 2025-09-29231541.png)
+> ![Screenshot bagian x](images/OUPUT1)
 > %% Untuk mencantumkan screenshot, tidak boleh ada spasi di urlnya `()`, penamaan file bebas asal gak sara dan mudah dipahami aja,, dan jangan lupa hapus komen ini yah%%
 
 Kode di atas digunakan untuk menghitung penjumlahan, pengurangan, perkalian, dan pembagian dari dua angka yang dimasukkan pengguna. Input disimpan di variabel a dan b, lalu hasil operasi ditampilkan dengan format lengkap, misalnya 5 + 6 = 11.
