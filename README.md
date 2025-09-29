@@ -1,39 +1,71 @@
-# Laporan Praktikum Modul 1  
-**Modul 1**
-
-**Ajda Mutiara Zahra - 103112400210**
-
----
-
+# <h1 align="center">Laporan Praktikum Modul 1 <br> Modul 1</h1>
+<p align="center">Ajda Mutiara Zahra - 103112400210</p>
 ## Dasar Teori
-Tuliskan dasar teori di sini. Bisa panjang, bisa juga poin-poin:
-- Teori tentang perulangan
-- Teori tentang kondisi
-- Teori tentang fungsi dan struct
 
----
+yang panjang dikit
 
 ## Guided
 
-### Soal 1
-Aku mengerjakan perulangan
+### soal 1
 
-### Soal 2
-Aku mengerjakan kondisi (if-else / switch)
-
----
+aku mengerjakan perulangan
 
 ## Unguided
 
 ### Soal 1
-Copy paste soal nomor 1 di sini  
-```cpp
-#include <iostream>
-using namespace std;
 
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << a << " + " << b << " = " << a + b;
-    return 0;
+copy paste soal nomor 1 disini
+
+```go
+package main
+
+func main() {
+	fmt.Println("Kode kalian disini")
+	fmt.Println("JANGAN MASUKIN >>SCREENSHOT<< KODE KALIAN DISINI")
+	fmt.Println("KALAU ADA -20 POIN LAPRAK")
 }
+```
+
+> Output
+> ![Screenshot bagian x](output/screenshot_soal1.png)
+> %% Untuk mencantumkan screenshot, tidak boleh ada spasi di urlnya `()`, penamaan file bebas asal gak sara dan mudah dipahami aja,, dan jangan lupa hapus komen ini yah%%
+
+Penjelasan ttg kode kalian disini
+
+### Soal 2
+
+soal nomor 2A
+
+```go
+package main
+
+func main() {
+	fmt.Println("kode untuk soal nomor 2A")
+}
+```
+
+> Output
+> ![Screenshot bagian x](output/screenshot_soal2A.png)
+
+penjelasan kode
+
+Kalau adalanjutan di lanjut disini aja
+
+soal nomor 2B
+
+```go
+package main
+
+func main() {
+	fmt.Println("kode untuk soal nomor 2B")
+}
+```
+
+> Output
+> ![Screenshot bagian x](output/screenshot_soal2B.png)
+
+penjelasan bedanya sesuai soal
+
+## Referensi
+
+1. https://en.wikipedia.org/wiki/Data_structure (diakses blablabla)
