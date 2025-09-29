@@ -41,7 +41,7 @@ int main()
     Z = (X + Y) / (Y + W);
     cout << "Nilai z = " << Z << endl;
     return 0;
-}
+} ```
 
 ### soal 1
 
@@ -53,15 +53,6 @@ aku mengerjakan perulangan
 
 copy paste soal nomor 1 disini
 
-```go
-package main
-
-func main() {
-	fmt.Println("Kode kalian disini")
-	fmt.Println("JANGAN MASUKIN >>SCREENSHOT<< KODE KALIAN DISINI")
-	fmt.Println("KALAU ADA -20 POIN LAPRAK")
-}
-```
 
 > Output
 > ![Screenshot bagian x](output/screenshot_soal1.png)
