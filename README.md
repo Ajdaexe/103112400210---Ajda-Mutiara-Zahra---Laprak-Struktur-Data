@@ -7,20 +7,20 @@ Bahasa C++ merupakan bahasa pemrograman yang mendukung paradigma prosedural dan 
 1. **Operator Aritmatika**  
    Digunakan untuk melakukan perhitungan matematis, misalnya penjumlahan (+), pengurangan (-), perkalian (*), dan pembagian (/).
    
-3. **Fungsi dan Prosedur**  
+2. **Fungsi dan Prosedur**  
    - *Fungsi* adalah blok kode yang mengembalikan nilai.  
    - *Prosedur* adalah blok kode yang tidak mengembalikan nilai, hanya menampilkan hasil.
-   - 
-4. **Kondisi (if, else, switch)**  
+     
+3. **Kondisi (if, else, switch)**  
    Kondisi digunakan untuk mengambil keputusan dalam program. Contohnya `switch-case` untuk menentukan hari kerja/libur.
 
-5. **Perulangan (for, while, do-while)**  
+4. **Perulangan (for, while, do-while)**  
    Perulangan digunakan untuk menjalankan instruksi berulang kali. `do-while` menjamin perintah dijalankan minimal sekali.
 
-6. **Struct**  
+5. **Struct**  
    `struct` digunakan untuk mengelompokkan variabel dengan tipe berbeda menjadi satu kesatuan, misalnya data mahasiswa.
 
-7. **Input Karakter**  
+6. **Input Karakter**  
    Program juga bisa menerima input berupa karakter dengan fungsi `getchar()`. 
 
 ## Guided
@@ -50,7 +50,7 @@ Saya mengerjakan program untuk membaca input berupa karakter dengan `getchar()`.
 
 Buatlah program yang menerima input-an dua buah bilangan betipe float, kemudian memberikan output-an hasil penjumlahan, pengurangan, perkalian, dan pembagian dari dua bilangan tersebut.
 
-```#include <iostream>
+``` #include <iostream>
 using namespace std; 
 
 int main (){
@@ -84,13 +84,49 @@ Penjelasan ttg kode kalian disini
 
 ### Soal 2
 
-soal nomor 2A
+Buatlah sebuah program yang menerima masukan angka dan mengeluarkan output nilai angka tersebut dalam bentuk tulisan. Angka yang akan di-input-kan user adalah bilangan bulat positif mulai dari 0 s.d 100
 
-```go
-package main
+contoh:
 
-func main() {
-	fmt.Println("kode untuk soal nomor 2A")
+79: tujuh puluh Sembilan
+
+
+``` #include <iostream> 
+using namespace std;
+
+string satuan[] = {"nol","satu","dua","tiga","empat","lima","enam","tujuh","delapan","sembilan"};
+string belasan[] = {"sepuluh","sebelas","dua belas","tiga belas","empat belas","lima belas","enam belas","tujuh belas","delapan belas","sembilan belas"};
+string puluhan[] = {"","sepuluh","dua puluh","tiga puluh","empat puluh","lima puluh","enam puluh","tujuh puluh","delapan puluh","sembilan puluh"};
+
+int main () {
+    int n;
+    cout << "Masukkan Angka dari 0 - 100 : ";
+    cin >> n;
+
+    cout << n << " = ";
+
+    if ( n < 10 ) {
+        cout << satuan[n];
+    }
+    else if (n < 20 ) {
+        cout << belasan [n-10];
+    }
+    else if (n < 100) {
+        int p = n / 10; 
+        int s = n % 10; 
+        cout << puluhan[p];
+        if (s != 0) {
+            cout << " " << satuan[s];
+        }
+    }
+    else if (n == 100 ) {
+        cout << "seyatus";
+    }
+    else {
+        cout << " no no, WAJIB 0 sampai 100 aja yawwww ";
+    }
+    cout << endl;
+    return 0;
 }
 ```
 
