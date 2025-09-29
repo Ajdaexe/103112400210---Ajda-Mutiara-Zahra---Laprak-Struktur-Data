@@ -135,22 +135,44 @@ int main () {
 
 penjelasan kode
 
-Kalau adalanjutan di lanjut disini aja
+### Soal 3
 
-soal nomor 2B
+Buatlah program yang menerima input-an dua buah bilangan betipe float, kemudian memberikan output-an hasil penjumlahan, pengurangan, perkalian, dan pembagian dari dua bilangan tersebut.
 
-```go
-package main
+```
+#include <iostream>
+using namespace std; 
 
-func main() {
-	fmt.Println("kode untuk soal nomor 2B")
+int  main () {
+    int n;
+    cout << " Angka : ";
+    cin >> n;
+
+    for (int i = n; i >= 1; i--){
+
+        for (int s = 0; s < n - i; s++){
+            cout << " ";
+        }
+         //ngiri
+        for (int j = i; j >= 1; j--) {
+            cout << j;
+        }
+
+        cout << " * ";
+        //nganan
+        for (int j = 1; j <= i; j++){
+            cout << j;
+        } 
+        cout << endl;
+    }
 }
 ```
 
 > Output
-> ![Screenshot bagian x](output/screenshot_soal2B.png)
+> ![Screenshot bagian x](output/screenshot_soal1.png)
+> %% Untuk mencantumkan screenshot, tidak boleh ada spasi di urlnya `()`, penamaan file bebas asal gak sara dan mudah dipahami aja,, dan jangan lupa hapus komen ini yah%%
 
-penjelasan bedanya sesuai soal
+Penjelasan ttg kode kalian disini
 
 ## Referensi
 
