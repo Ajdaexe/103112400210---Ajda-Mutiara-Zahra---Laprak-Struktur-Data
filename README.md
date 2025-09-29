@@ -50,7 +50,8 @@ Saya mengerjakan program untuk membaca input berupa karakter dengan `getchar()`.
 
 Buatlah program yang menerima input-an dua buah bilangan betipe float, kemudian memberikan output-an hasil penjumlahan, pengurangan, perkalian, dan pembagian dari dua bilangan tersebut.
 
-``` #include <iostream>
+```
+#include <iostream>
 using namespace std; 
 
 int main (){
@@ -80,7 +81,7 @@ int main (){
 > ![Screenshot bagian x](output/screenshot_soal1.png)
 > %% Untuk mencantumkan screenshot, tidak boleh ada spasi di urlnya `()`, penamaan file bebas asal gak sara dan mudah dipahami aja,, dan jangan lupa hapus komen ini yah%%
 
-Penjelasan ttg kode kalian disini
+Kode di atas digunakan untuk menghitung penjumlahan, pengurangan, perkalian, dan pembagian dari dua angka yang dimasukkan pengguna. Input disimpan di variabel a dan b, lalu hasil operasi ditampilkan dengan format lengkap, misalnya 5 + 6 = 11.
 
 ### Soal 2
 
@@ -91,7 +92,8 @@ contoh:
 79: tujuh puluh Sembilan
 
 
-``` #include <iostream> 
+```
+#include <iostream> 
 using namespace std;
 
 string satuan[] = {"nol","satu","dua","tiga","empat","lima","enam","tujuh","delapan","sembilan"};
@@ -133,7 +135,7 @@ int main () {
 > Output
 > ![Screenshot bagian x](output/screenshot_soal2A.png)
 
-penjelasan kode
+Kode di atas digunakan untuk mengubah angka 0 sampai 100 menjadi tulisan. Program memakai array satuan, belasan, dan puluhan untuk menyimpan kata dasar angka. Hasilnya disesuaikan dengan kondisi input, misalnya 79 akan ditampilkan sebagai “tujuh puluh sembilan”.
 
 ### Soal 3
 
@@ -172,7 +174,7 @@ int  main () {
 > ![Screenshot bagian x](output/screenshot_soal1.png)
 > %% Untuk mencantumkan screenshot, tidak boleh ada spasi di urlnya `()`, penamaan file bebas asal gak sara dan mudah dipahami aja,, dan jangan lupa hapus komen ini yah%%
 
-Penjelasan ttg kode kalian disini
+Kode di atas digunakan untuk mencetak pola angka simetris dengan tanda * di tengah. Perulangan mengatur spasi, angka menurun di kiri, bintang di tengah, dan angka naik di kanan. Contohnya, jika n = 3, maka keluar pola Segitiga.
 
 ## Referensi
 
