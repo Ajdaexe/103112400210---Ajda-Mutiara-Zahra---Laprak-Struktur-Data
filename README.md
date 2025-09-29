@@ -48,15 +48,31 @@ Saya mengerjakan program untuk membaca input berupa karakter dengan `getchar()`.
 
 ### Soal 1
 
-copy paste soal nomor 1 disini
+Buatlah program yang menerima input-an dua buah bilangan betipe float, kemudian memberikan output-an hasil penjumlahan, pengurangan, perkalian, dan pembagian dari dua bilangan tersebut.
 
-```go
-package main
+```#include <iostream>
+using namespace std; 
 
-func main() {
-	fmt.Println("Kode kalian disini")
-	fmt.Println("JANGAN MASUKIN >>SCREENSHOT<< KODE KALIAN DISINI")
-	fmt.Println("KALAU ADA -20 POIN LAPRAK")
+int main (){
+    float a, b;
+    cout << "Angka 1 : ";
+    cin >> a;
+    cout << "Angka 2 : ";
+    cin >> b;
+
+    // Operasi Dasar
+    cout << "Penjumlahan : " << a + b << endl;
+    cout << "Pengurangan : " << a - b << endl;
+    cout << "Perkalian   : " << a * b << endl;
+    cout << "Pembagian   : " << a / b << endl;
+
+    // Or    
+    cout << a << " + " << b << " = " << a + b << endl;
+    cout << a << " - " << b << " = " << a - b << endl;
+    cout << a << " x " << b << " = " << a * b << endl;
+    cout << a << " : " << b << " = " << a / b << endl;
+
+    return 0;
 }
 ```
 
