@@ -8,8 +8,8 @@ Bahasa C++ merupakan bahasa pemrograman yang mendukung paradigma prosedural dan 
    Digunakan untuk melakukan perhitungan matematis, misalnya penjumlahan (+), pengurangan (-), perkalian (*), dan pembagian (/).
    
 2. **Fungsi dan Prosedur**  
-   - *Fungsi* adalah blok kode yang mengembalikan nilai.  
-   - *Prosedur* adalah blok kode yang tidak mengembalikan nilai, hanya menampilkan hasil.
+   - Fungsi adalah blok kode yang mengembalikan nilai.  
+   - Prosedur adalah blok kode yang tidak mengembalikan nilai, hanya menampilkan hasil.
      
 3. **Kondisi (if, else, switch)**  
    Kondisi digunakan untuk mengambil keputusan dalam program. Contohnya `switch-case` untuk menentukan hari kerja/libur.
@@ -132,7 +132,7 @@ int main () {
 ```
 
 > Output
-> ![Screenshot bagian x](images/OUTPUT2)
+> ![Screenshot bagian x](Modul 1 Codeblocks IDE & Pengenalan Bahasa C++/OUTPUT/OUTPUT 2.png)
 
 Kode di atas digunakan untuk mengubah angka 0 sampai 100 menjadi tulisan. Program memakai array satuan, belasan, dan puluhan untuk menyimpan kata dasar angka. Hasilnya disesuaikan dengan kondisi input, misalnya 79 akan ditampilkan sebagai “tujuh puluh sembilan”.
 
@@ -170,7 +170,7 @@ int  main () {
 ```
 
 > Output
-> ![Screenshot bagian x](images/OUTPUT3)
+> ![Screenshot bagian x](Modul 1 Codeblocks IDE & Pengenalan Bahasa C++/OUTPUT/OUTPUT 3.png)
 
 Kode di atas digunakan untuk mencetak pola angka simetris dengan tanda * di tengah. Perulangan mengatur spasi, angka menurun di kiri, bintang di tengah, dan angka naik di kanan. Contohnya, jika n = 3, maka keluar pola Segitiga.
 
