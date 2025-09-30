@@ -78,7 +78,7 @@ int main (){
 ```
 
 > Output
-> ![Screenshot bagian x](images/OUPUT1)
+> ![Screenshot bagian x](Modul 1 Codeblocks IDE & Pengenalan Bahasa C++/OUTPUT/OUTPUT 1.png)
 
 Kode di atas digunakan untuk menghitung penjumlahan, pengurangan, perkalian, dan pembagian dari dua angka yang dimasukkan pengguna. Input disimpan di variabel a dan b, lalu hasil operasi ditampilkan dengan format lengkap, misalnya 5 + 6 = 11.
 
