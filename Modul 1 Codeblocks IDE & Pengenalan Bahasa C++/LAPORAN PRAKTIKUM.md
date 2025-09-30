@@ -132,7 +132,7 @@ int main () {
 ```
 
 > Output
-> ![Screenshot bagian x](Modul 1 Codeblocks IDE & Pengenalan Bahasa C++/OUTPUT/OUTPUT 2.png)
+> ![Screenshot bagian x](OUTPUT/OUTPUT2.png)
 
 Kode di atas digunakan untuk mengubah angka 0 sampai 100 menjadi tulisan. Program memakai array satuan, belasan, dan puluhan untuk menyimpan kata dasar angka. Hasilnya disesuaikan dengan kondisi input, misalnya 79 akan ditampilkan sebagai “tujuh puluh sembilan”.
 
@@ -170,7 +170,7 @@ int  main () {
 ```
 
 > Output
-> ![Screenshot bagian x](Modul 1 Codeblocks IDE & Pengenalan Bahasa C++/OUTPUT/OUTPUT 3.png)
+> ![Screenshot bagian x](OUTPUT/OUTPUT3.png)
 
 Kode di atas digunakan untuk mencetak pola angka simetris dengan tanda * di tengah. Perulangan mengatur spasi, angka menurun di kiri, bintang di tengah, dan angka naik di kanan. Contohnya, jika n = 3, maka keluar pola Segitiga.
 
