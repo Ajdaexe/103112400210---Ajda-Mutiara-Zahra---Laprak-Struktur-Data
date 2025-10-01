@@ -48,17 +48,52 @@ Program di atas untuk melakukan perhitungan aritmatika sederhana, yaitu menjumla
 ```
 #include <iostream>
 using namespace std;
+
+// Prosedur: hanya menampilkan hasil, tidak mengembalikan nilai
+void tampilkanHasil(double p, double l)
+{
+    cout << "\n=== Hasil Perhitungan ===" << endl;
+    cout << "Panjang : " << p << endl;
+    cout << "Lebar   : " << l << endl;
+    cout << "Luas    : " << p * l << endl;
+    cout << "Keliling: " << 2 * (p + l) << endl;
+}
+
+// Fungsi: mengembalikan nilai luas
+double hitungLuas(double p, double l)
+{
+    return p * l;
+}
+
+// Fungsi: mengembalikan nilai keliling
+double hitungKeliling(double p, double l)
+{
+    return 2 * (p + l);
+}
+
 int main()
 {
-    int W, X, Y;
-    float Z;
-    X = 7;
-    Y = 3;
-    W = 1;
-    Z = (X + Y) / (Y + W);
-    cout << "Nilai z = " << Z << endl;
+    double panjang, lebar;
+
+    cout << "Masukkan panjang: ";
+    cin >> panjang;
+    cout << "Masukkan lebar  : ";
+    cin >> lebar;
+
+    // Panggil fungsi
+    double luas = hitungLuas(panjang, lebar);
+    double keliling = hitungKeliling(panjang, lebar);
+
+    cout << "\nDihitung dengan fungsi:" << endl;
+    cout << "Luas      = " << luas << endl;
+    cout << "Keliling  = " << keliling << endl;
+
+    // Panggil prosedur
+    tampilkanHasil(panjang, lebar);
+
     return 0;
 }
+
 ```
 
 Penjelasan Program :
