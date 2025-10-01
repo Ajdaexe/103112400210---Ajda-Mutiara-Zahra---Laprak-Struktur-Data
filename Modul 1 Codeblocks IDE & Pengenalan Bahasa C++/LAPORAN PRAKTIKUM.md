@@ -26,7 +26,21 @@ Bahasa C++ merupakan bahasa pemrograman yang mendukung paradigma prosedural dan 
 ## Guided
 
 ### 1. Aritmatika
-Saya mengerjakan operasi aritmatika sederhana menggunakan operator `+`, `-`, `*`, dan `/`.
+```
+#include <iostream>
+using namespace std;
+int main()
+{
+    string ch;
+    cout << "Masukkan sebuah karakter: ";
+    // cin >> ch;
+    ch = getchar();  //Menggunakan getchar() untuk membaca satu karakter
+    cout << "Karakter yang Anda masukkan adalah: " << ch << endl;
+    return 0;
+}
+```
+Penjelasan Program :
+Program di atas untuk melakukan perhitungan aritmatika sederhana, yaitu menjumlahkan dua bilangan lalu membaginya dengan hasil penjumlahan bilangan lain, kemudian menampilkan hasil akhirnya ke layar.
 
 ### 2. Fungsi dan Prosedur
 Saya mengerjakan program yang menggunakan fungsi untuk menghitung luas dan keliling, serta prosedur untuk menampilkan hasil.
