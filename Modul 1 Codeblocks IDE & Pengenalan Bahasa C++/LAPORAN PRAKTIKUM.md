@@ -2,26 +2,7 @@
 <p align="center">Ajda Mutiara Zahra - 103112400210</p>
 
 ## Dasar Teori
-Bahasa C++ merupakan bahasa pemrograman yang mendukung paradigma prosedural dan berorientasi objek. Dalam praktikum ini, konsep dasar yang digunakan meliputi:
-
-1. **Operator Aritmatika**  
-   Digunakan untuk melakukan perhitungan matematis, misalnya penjumlahan (+), pengurangan (-), perkalian (*), dan pembagian (/).
-   
-2. **Fungsi dan Prosedur**  
-   - Fungsi adalah blok kode yang mengembalikan nilai.  
-   - Prosedur adalah blok kode yang tidak mengembalikan nilai, hanya menampilkan hasil.
-     
-3. **Kondisi (if, else, switch)**  
-   Kondisi digunakan untuk mengambil keputusan dalam program. Contohnya `switch-case` untuk menentukan hari kerja/libur.
-
-4. **Perulangan (for, while, do-while)**  
-   Perulangan digunakan untuk menjalankan instruksi berulang kali. `do-while` menjamin perintah dijalankan minimal sekali.
-
-5. **Struct**  
-   `struct` digunakan untuk mengelompokkan variabel dengan tipe berbeda menjadi satu kesatuan, misalnya data mahasiswa.
-
-6. **Input Karakter**  
-   Program juga bisa menerima input berupa karakter dengan fungsi `getchar()`. 
+Bahasa C++ adalah bahasa pemrograman tingkat tinggi yang programnya selalu dimulai dari fungsi main() dan biasanya diawali dengan #include <iostream> untuk mendukung input dan output. Data disimpan dalam variabel dengan tipe tertentu seperti int, float, char, string, dan bool, lalu diolah menggunakan operator aritmatika, relasi, maupun logika. Untuk mengatur alur, C++ menyediakan percabangan (if-else, switch) serta perulangan (for, while, do-while) agar instruksi bisa dipilih atau diulang sesuai kondisi. Supaya lebih terstruktur, digunakan fungsi yang dapat berupa prosedur tanpa nilai balik atau fungsi yang menghasilkan nilai, serta struct yang berfungsi mengelompokkan data terkait menjadi satu kesatuan yang rapi. 
 
 ## Guided
 
