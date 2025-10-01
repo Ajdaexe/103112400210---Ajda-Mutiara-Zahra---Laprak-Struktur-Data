@@ -31,6 +31,180 @@ Bahasa C++ merupakan bahasa pemrograman yang mendukung paradigma prosedural dan 
 using namespace std;
 int main()
 {
+    int W, X, Y;
+    float Z;
+    X = 7;
+    Y = 3;
+    W = 1;
+    Z = (X + Y) / (Y + W);
+    cout << "Nilai z = " << Z << endl;
+    return 0;
+}
+```
+Penjelasan Program :
+Program di atas untuk melakukan perhitungan aritmatika sederhana, yaitu menjumlahkan dua bilangan lalu membaginya dengan hasil penjumlahan bilangan lain, kemudian menampilkan hasil akhirnya ke layar.
+
+### 2. Fungsi 
+```
+#include <iostream>
+using namespace std;
+int main()
+{
+    int W, X, Y;
+    float Z;
+    X = 7;
+    Y = 3;
+    W = 1;
+    Z = (X + Y) / (Y + W);
+    cout << "Nilai z = " << Z << endl;
+    return 0;
+}
+```
+
+Penjelasan Program :
+Program di atas untuk menghitung luas dan keliling persegi panjang dengan menggunakan konsep fungsi dan prosedur, lalu menampilkan hasil perhitungannya kepada pengguna.
+
+### 3. Kondisi
+```
+#include <iostream>
+using namespace std;
+// int main()
+// {
+//     double tot_pembelian, diskon;
+//     cout << "total pembelian: Rp";
+//     cin >> tot_pembelian;
+//     diskon = 0;
+//     if (tot_pembelian >= 100000)
+//         diskon = 0.05 * tot_pembelian;
+//     cout << "besar diskon = Rp" << diskon;
+// }
+
+
+
+// int main()
+// {
+//     double tot_pembelian, diskon;
+//     cout << "total pembelian: Rp";
+//     cin >> tot_pembelian;
+//     diskon = 0;
+//     if (tot_pembelian >= 100000)
+//         diskon = 0.05 * tot_pembelian;
+//     else
+//         diskon = 0;
+//     cout << "besar diskon = Rp" << diskon;
+// }
+
+
+
+int main()
+{
+    int kode_hari;
+    cout << "Menentukan hari kerja/libur\n"<<endl;
+    cout << "1=Senin 3=Rabu 5=Jumat 7=Minggu "<<endl;
+    cout << "2=Selasa 4=Kamis 6=Sabtu "<<endl;
+    cin >> kode_hari;
+    switch (kode_hari)
+    {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        cout<<"Hari Kerja";
+        break;
+    case 6:
+    case 7:
+        cout<<"Hari Libur";
+        break;
+    default:
+        cout<<"Kode masukan salah!!!";
+    }
+    return 0;
+}
+```
+
+Penjelasan Program :
+Program di atas untuk menentukan hasil berdasarkan kondisi tertentu, misalnya apakah mendapat diskon dari total belanja atau menentukan apakah suatu hari termasuk hari kerja atau hari libur.
+
+### 4. Perulangan
+
+```
+#include <iostream>
+using namespace std;
+// int main()
+// {
+//     int jum;
+//     cout << "jumlah perulangan: ";
+//     cin >> jum;
+//     for (int i = 0; i < jum; i++)
+//     {
+//         cout << "saya sahroni\n";
+//     }
+//     return 1;
+// }
+
+
+// while
+int main()
+{
+    int i = 1;
+    int jum;
+    cin >> jum;
+    do
+    {
+        cout << "bahlil ke-" << (i + 1) << endl;
+        i++;
+    } while (i < jum);
+    return 0;
+}
+```
+
+Penjelasan Program :
+Program di atas untuk menampilkan teks secara berulang sesuai jumlah yang diinput pengguna dengan menggunakan perulangan (looping).
+
+### 5. Struct
+```
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Definisi struct
+struct Mahasiswa {
+    string nama;
+    string nim;
+    float ipk;
+};
+
+int main() {
+
+    Mahasiswa mhs1;
+
+    cout << "Masukkan Nama Mahasiswa: ";
+    getline(cin, mhs1.nama);
+    // cin >> mhs1.nama;
+    cout << "Masukkan NIM Mahasiswa : ";
+    cin >> mhs1.nim;
+    cout << "Masukkan IPK Mahasiswa : ";
+    cin >> mhs1.ipk;
+
+    cout << "\n=== Data Mahasiswa ===" << endl;
+    cout << "Nama : " << mhs1.nama << endl;
+    cout << "NIM  : " << mhs1.nim << endl;
+    cout << "IPK  : " << mhs1.ipk << endl;
+
+    return 0;
+}
+```
+
+Penjelasan Program :
+Program di atas untuk menyimpan dan menampilkan data mahasiswa (nama, NIM, dan IPK) menggunakan struktur data struct agar lebih terorganisir.
+
+### 6. Input Karakter
+```
+#include <iostream>
+using namespace std;
+int main()
+{
     string ch;
     cout << "Masukkan sebuah karakter: ";
     // cin >> ch;
@@ -39,23 +213,10 @@ int main()
     return 0;
 }
 ```
+
+
 Penjelasan Program :
-Program di atas untuk melakukan perhitungan aritmatika sederhana, yaitu menjumlahkan dua bilangan lalu membaginya dengan hasil penjumlahan bilangan lain, kemudian menampilkan hasil akhirnya ke layar.
-
-### 2. Fungsi dan Prosedur
-Saya mengerjakan program yang menggunakan fungsi untuk menghitung luas dan keliling, serta prosedur untuk menampilkan hasil.
-
-### 3. Kondisi
-Saya mengerjakan program dengan kondisi `if` dan `switch` untuk menentukan hari kerja atau hari libur.
-
-### 4. Perulangan
-Saya mengerjakan perulangan menggunakan `do-while` untuk mencetak teks berulang kali.
-
-### 5. Struct
-Saya mengerjakan program dengan `struct` untuk menyimpan data mahasiswa (nama, NIM, IPK).
-
-### 6. Input Karakter
-Saya mengerjakan program untuk membaca input berupa karakter dengan `getchar()`.
+Program di atas untuk membaca satu karakter yang dimasukkan pengguna, kemudian menampilkan kembali karakter tersebut di layar.
 
 
 ## Unguided
