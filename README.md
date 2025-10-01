@@ -1,4 +1,4 @@
-## Repository praktikum algoritma dan struktur data
+## Repository Praktikum Algoritma dan Struktur Data
 
 <pre>
 Nama : Ajda Mutiara Zahra
