@@ -239,7 +239,20 @@ Program di atas untuk membaca satu karakter yang dimasukkan pengguna, kemudian m
 
 ### Soal 1
 
-Buatlah program yang menerima input-an dua buah bilangan betipe float, kemudian memberikan output-an hasil penjumlahan, pengurangan, perkalian, dan pembagian dari dua bilangan tersebut.
+Buatlah sebuah program untuk melakukan transpose pada sebuah matriks persegi berukuran 3x3. Operasi transpose adalah mengubah baris menjadi kolom dan sebaliknya. Inisialisasi matriks awal di dalam kode, kemudian buat logika untuk melakukan transpose dan simpan hasilnya ke dalam matriks baru. Terakhir, tampilkan matriks awal dan matriks hasil transpose.
+
+Contoh Output:
+
+Matriks Awal:
+1 2 3
+4 5 6
+7 8 9
+
+Matriks Hasil Transpose:
+1 4 7
+2 5 8
+3 6 9
+
 
 ```
 #include <iostream>
@@ -300,15 +313,17 @@ int main ()
 > Output
 > ![Screenshot bagian x](OUTPUT/TRANSPOSE2.PNG)
 
-Kode di atas digunakan untuk menghitung penjumlahan, pengurangan, perkalian, dan pembagian dari dua angka yang dimasukkan pengguna. Input disimpan di variabel a dan b, lalu hasil operasi ditampilkan dengan format lengkap, misalnya 5 + 6 = 11.
+Program di atas untuk menampilkan matriks awal dan hasil transpose. User menginput elemen matriks 3x3, lalu program membuat transpose dengan menukar baris jadi kolom. Setelah itu, program menampilkan matriks asli dan matriks hasil transpose.
+
 
 ### Soal 2
 
-Buatlah sebuah program yang menerima masukan angka dan mengeluarkan output nilai angka tersebut dalam bentuk tulisan. Angka yang akan di-input-kan user adalah bilangan bulat positif mulai dari 0 s.d 100
+Buatlah program yang menunjukkan penggunaan call by reference. Buat sebuah prosedur bernama kuadratkan yang menerima satu parameter integer secara referensi (&). Prosedur ini akan mengubah nilai asli variabel yang dilewatkan dengan nilai kuadratnya. Tampilkan nilai variabel di main() sebelum dan sesudah memanggil prosedur untuk membuktikan perubahannya. 
 
-contoh:
+Contoh Output:
 
-79: tujuh puluh Sembilan
+Nilai awal: 5
+Nilai setelah dikuadratkan: 25
 
 
 ```
@@ -334,7 +349,7 @@ int main ()
 > Output
 > ![Screenshot bagian x](OUTPUT/CALLBYREF.PNG)
 
-Kode di atas digunakan untuk mengubah angka 0 sampai 100 menjadi tulisan. Program memakai array satuan, belasan, dan puluhan untuk menyimpan kata dasar angka. Hasilnya disesuaikan dengan kondisi input, misalnya 79 akan ditampilkan sebagai “tujuh puluh sembilan”.
+Program di atas untuk mengkuadratkan angka dengan reference. Pertama user memasukkan angka, lalu ditampilkan nilainya. Reference `ref` menunjuk ke variabel `angka`, jadi saat `ref` dikalikan dengan dirinya sendiri, nilai `angka` ikut berubah. Terakhir program menampilkan hasil angka setelah dikuadratkan.
 
 
 ## Referensi
