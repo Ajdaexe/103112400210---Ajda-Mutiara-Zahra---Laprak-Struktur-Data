@@ -2,7 +2,7 @@
 <p align="center">Ajda Mutiara Zahra - 103112400210</p>
 
 ## Dasar Teori
-Bahasa C++ adalah bahasa pemrograman tingkat tinggi yang programnya selalu dimulai dari fungsi main() dan biasanya diawali dengan #include <iostream> untuk mendukung input dan output. Data disimpan dalam variabel dengan tipe tertentu seperti int, float, char, string, dan bool, lalu diolah menggunakan operator aritmatika, relasi, maupun logika. Untuk mengatur alur, C++ menyediakan percabangan (if-else, switch) serta perulangan (for, while, do-while) agar instruksi bisa dipilih atau diulang sesuai kondisi. Supaya lebih terstruktur, digunakan fungsi yang dapat berupa prosedur tanpa nilai balik atau fungsi yang menghasilkan nilai, serta struct yang berfungsi mengelompokkan data terkait menjadi satu kesatuan yang rapi. 
+Array adalah kumpulan data dengan tipe yang sama yang disimpan dalam satu variabel, sehingga memudahkan pengolahan data yang jumlahnya banyak. Matriks adalah bentuk lanjutan dari array, di mana data disusun dalam baris dan kolom layaknya tabel, dan bisa dipakai untuk berbagai operasi matematika, misalnya transpose. Pointer adalah variabel khusus yang menyimpan alamat memori dari variabel lain, sehingga kita bisa mengakses atau mengubah data secara langsung lewat alamat tersebut. Sedangkan call by reference adalah cara agar sebuah variabel bisa diproses lewat alamatnya, sehingga perubahan yang dilakukan di dalam fungsi atau blok program akan langsung memengaruhi nilai variabel aslinya.
 
 ## Guided
 
