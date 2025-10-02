@@ -298,7 +298,7 @@ int main ()
 ```
 
 > Output
-> ![Screenshot bagian x](OUTPUT/CALLBYREF.PNG)
+> ![Screenshot bagian x](OUTPUT/TRANSPOSE2.PNG)
 
 Kode di atas digunakan untuk menghitung penjumlahan, pengurangan, perkalian, dan pembagian dari dua angka yang dimasukkan pengguna. Input disimpan di variabel a dan b, lalu hasil operasi ditampilkan dengan format lengkap, misalnya 5 + 6 = 11.
 
@@ -332,7 +332,7 @@ int main ()
 ```
 
 > Output
-> ![Screenshot bagian x](OUTPUT/TRANSPOSE2.PNG)
+> ![Screenshot bagian x](OUTPUT/CALLBYREF.PNG)
 
 Kode di atas digunakan untuk mengubah angka 0 sampai 100 menjadi tulisan. Program memakai array satuan, belasan, dan puluhan untuk menyimpan kata dasar angka. Hasilnya disesuaikan dengan kondisi input, misalnya 79 akan ditampilkan sebagai “tujuh puluh sembilan”.
 
