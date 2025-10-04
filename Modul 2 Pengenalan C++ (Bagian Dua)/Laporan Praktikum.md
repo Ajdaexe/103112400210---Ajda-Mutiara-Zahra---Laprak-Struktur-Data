@@ -6,233 +6,217 @@ Array adalah kumpulan data dengan tipe yang sama yang disimpan dalam satu variab
 
 ## Guided
 
-### 1. Aritmatika
-```
-#include <iostream>
-using namespace std;
-int main()
-{
-    int W, X, Y;
-    float Z;
-    X = 7;
-    Y = 3;
-    W = 1;
-    Z = (X + Y) / (Y + W);
-    cout << "Nilai z = " << Z << endl;
-    return 0;
-}
-```
-Penjelasan Program :
-Program di atas untuk melakukan perhitungan aritmatika sederhana, yaitu menjumlahkan dua bilangan lalu membaginya dengan hasil penjumlahan bilangan lain, kemudian menampilkan hasil akhirnya ke layar.
-
-### 2. Fungsi 
+### 1. Array
 ```
 #include <iostream>
 using namespace std;
 
-// Prosedur: hanya menampilkan hasil, tidak mengembalikan nilai
-void tampilkanHasil(double p, double l)
-{
-    cout << "\n=== Hasil Perhitungan ===" << endl;
-    cout << "Panjang : " << p << endl;
-    cout << "Lebar   : " << l << endl;
-    cout << "Luas    : " << p * l << endl;
-    cout << "Keliling: " << 2 * (p + l) << endl;
-}
+int main(){
+    int nilai[] = {1,2,3,4,5};
 
-// Fungsi: mengembalikan nilai luas
-double hitungLuas(double p, double l)
-{
-    return p * l;
-}
-
-// Fungsi: mengembalikan nilai keliling
-double hitungKeliling(double p, double l)
-{
-    return 2 * (p + l);
-}
-
-int main()
-{
-    double panjang, lebar;
-
-    cout << "Masukkan panjang: ";
-    cin >> panjang;
-    cout << "Masukkan lebar  : ";
-    cin >> lebar;
-
-    // Panggil fungsi
-    double luas = hitungLuas(panjang, lebar);
-    double keliling = hitungKeliling(panjang, lebar);
-
-    cout << "\nDihitung dengan fungsi:" << endl;
-    cout << "Luas      = " << luas << endl;
-    cout << "Keliling  = " << keliling << endl;
-
-    // Panggil prosedur
-    tampilkanHasil(panjang, lebar);
-
-    return 0;
-}
-
-```
-
-Penjelasan Program :
-Program di atas untuk menghitung luas dan keliling persegi panjang dengan menggunakan konsep fungsi dan prosedur, lalu menampilkan hasil perhitungannya kepada pengguna.
-
-### 3. Kondisi
-```
-#include <iostream>
-using namespace std;
-// int main()
-// {
-//     double tot_pembelian, diskon;
-//     cout << "total pembelian: Rp";
-//     cin >> tot_pembelian;
-//     diskon = 0;
-//     if (tot_pembelian >= 100000)
-//         diskon = 0.05 * tot_pembelian;
-//     cout << "besar diskon = Rp" << diskon;
-// }
-
-
-
-// int main()
-// {
-//     double tot_pembelian, diskon;
-//     cout << "total pembelian: Rp";
-//     cin >> tot_pembelian;
-//     diskon = 0;
-//     if (tot_pembelian >= 100000)
-//         diskon = 0.05 * tot_pembelian;
-//     else
-//         diskon = 0;
-//     cout << "besar diskon = Rp" << diskon;
-// }
-
-
-
-int main()
-{
-    int kode_hari;
-    cout << "Menentukan hari kerja/libur\n"<<endl;
-    cout << "1=Senin 3=Rabu 5=Jumat 7=Minggu "<<endl;
-    cout << "2=Selasa 4=Kamis 6=Sabtu "<<endl;
-    cin >> kode_hari;
-    switch (kode_hari)
+    for (int i = 0; i < 5; i++)
     {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-        cout<<"Hari Kerja";
-        break;
-    case 6:
-    case 7:
-        cout<<"Hari Libur";
-        break;
-    default:
-        cout<<"Kode masukan salah!!!";
+        cout << "elemen ke-" << i << "=" << nilai[i] << endl;
     }
     return 0;
 }
 ```
-
 Penjelasan Program :
-Program di atas untuk menentukan hasil berdasarkan kondisi tertentu, misalnya apakah mendapat diskon dari total belanja atau menentukan apakah suatu hari termasuk hari kerja atau hari libur.
+Program di atas untuk menyimpan lima angka dalam sebuah array dan kemudian menampilkannya satu per satu. Isi array adalah angka 1 sampai 5, dan melalui perulangan for, setiap elemen ditampilkan sesuai dengan indeksnya sehingga pengguna bisa melihat posisi serta nilai dari masing-masing elemen.
 
-### 4. Perulangan
-
+### 2. Array 2D
 ```
 #include <iostream>
 using namespace std;
-// int main()
-// {
-//     int jum;
-//     cout << "jumlah perulangan: ";
-//     cin >> jum;
-//     for (int i = 0; i < jum; i++)
-//     {
-//         cout << "saya sahroni\n";
-//     }
-//     return 1;
-// }
 
-
-// while
 int main()
 {
-    int i = 1;
-    int jum;
-    cin >> jum;
-    do
+    int matriks[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}};
+
+    for (int i = 0; i < 3; ++i)
     {
-        cout << "bahlil ke-" << (i + 1) << endl;
-        i++;
-    } while (i < jum);
+        for (int j = 0; j < 3; ++j)
+        {
+            cout << matriks[i][j] << " ";
+        }
+        // pindah baris setelah setiap baris matriks selesai dicetak
+        cout << endl;
+    }
+
     return 0;
+}
+
+```
+
+Penjelasan Program :
+Program di atas untuk membuat sebuah matriks berukuran 3x3 yang berisi angka 1 sampai 9, lalu mencetaknya ke layar dalam bentuk tabel. Proses pencetakan dilakukan dengan perulangan bersarang, sehingga setiap baris matriks ditampilkan dengan rapi sesuai urutan kolomnya.
+
+### 3. Pointer
+```
+#include <iostream>
+using namespace std;
+
+int main(){
+    int umur = 25;
+    int *p_umur;
+
+    p_umur = &umur;
+
+    cout << "nilai 'umur' : " << umur << endl;
+    cout << "Alamat Memori 'umur' : " << umur << endl;
+    cout << "nilai  'umur' : " << umur << endl;
+    cout << "nilai 'umur' : " << umur << endl;
+    cout << "nilai 'umur' : " << umur << endl;
 }
 ```
 
 Penjelasan Program :
-Program di atas untuk menampilkan teks secara berulang sesuai jumlah yang diinput pengguna dengan menggunakan perulangan (looping).
+Program di atas untuk menunjukkan cara penggunaan pointer dalam C++. Variabel umur diberikan nilai 25, lalu dibuat pointer yang menunjuk ke alamat memori variabel tersebut. Seharusnya, program bisa menampilkan nilai dan alamat memori, tetapi dalam kode ini yang tercetak masih berupa nilai variabel saja.
 
-### 5. Struct
+### 4. Array Pointer
+
 ```
 #include <iostream>
-#include <string>
 using namespace std;
 
-// Definisi struct
-struct Mahasiswa {
-    string nama;
-    string nim;
-    float ipk;
-};
+int main()
+{
+    int data[5] = {10, 20, 30, 40, 50};
+    int *p_data = data;
+
+    cout << "Mengakses elemen array cara normal:" << endl;
+    for (int i = 0; i < 5; ++i)
+    {
+        cout << "Nilai elemen ke-" << i << " : " << data[i] << endl;
+    }
+
+    cout << "Mengakses elemen array menggunakan pointer:" << endl;
+    for (int i = 0; i < 5; ++i)
+    {
+        cout << "Nilai elemen ke-" << i << " : " << *(p_data + i) << endl;
+    }
+
+    return 0;
+}
+
+```
+
+Penjelasan Program :
+Program di atas untuk menjelaskan dua cara mengakses elemen sebuah array, yaitu secara langsung dengan indeks dan melalui pointer. Dengan menggunakan indeks, elemen ditampilkan menggunakan data[i], sedangkan dengan pointer elemen diakses dengan operasi *(p_data + i). Keduanya menghasilkan tampilan nilai array yang sama.
+
+### 5. String
+```
+#include <iostream>
+using namespace std;
 
 int main() {
+    char pesan_array[] = "Nasi Padang";
+    char *pesan_pointer = "Ayam Bakar 23";
 
-    Mahasiswa mhs1;
+    cout << "String Array: " << pesan_array << endl;
+    cout << "String Pointer: " << pesan_pointer << endl;
 
-    cout << "Masukkan Nama Mahasiswa: ";
-    getline(cin, mhs1.nama);
-    // cin >> mhs1.nama;
-    cout << "Masukkan NIM Mahasiswa : ";
-    cin >> mhs1.nim;
-    cout << "Masukkan IPK Mahasiswa : ";
-    cin >> mhs1.ipk;
+    // Mengubah karakter dalam array diperbolehkan
+    pesan_array[0] = 'h';
+    cout << "String Array setelah diubah: " << pesan_array << endl;
 
-    cout << "\n=== Data Mahasiswa ===" << endl;
-    cout << "Nama : " << mhs1.nama << endl;
-    cout << "NIM  : " << mhs1.nim << endl;
-    cout << "IPK  : " << mhs1.ipk << endl;
+    // Pointer dapat diubah untuk menunjuk ke string lain
+    pesan_pointer = "Sariman";
+    cout << "String Pointer setelah menunjuk ke string lain: " << pesan_pointer << endl;
 
     return 0;
 }
 ```
 
 Penjelasan Program :
-Program di atas untuk menyimpan dan menampilkan data mahasiswa (nama, NIM, dan IPK) menggunakan struktur data struct agar lebih terorganisir.
+Program di atas untuk memperlihatkan perbedaan antara string yang disimpan dalam array karakter dan string yang disimpan menggunakan pointer. String dalam array karakter dapat diubah isinya, misalnya huruf pertama diganti, sedangkan string pointer tidak dapat diubah isinya secara langsung, tetapi bisa diarahkan ke string lain.
 
-### 6. Input Karakter
+### 6. Fungsi
 ```
 #include <iostream>
 using namespace std;
+
+int tambah(int a, int b)
+{
+    return a + b;
+}
+
+void tampilkanHasil(int a, int b, int hasil)
+{
+    cout << "Hasil penjumlahan " << a << " + " << b << " adalah: " << hasil << endl;
+}
+
 int main()
 {
-    string ch;
-    cout << "Masukkan sebuah karakter: ";
-    // cin >> ch;
-    ch = getchar();  //Menggunakan getchar() untuk membaca satu karakter
-    cout << "Karakter yang Anda masukkan adalah: " << ch << endl;
+    int angka1 = 10;
+    int angka2 = 5;
+
+    int hasilJumlah = tambah(angka1, angka2);
+
+    tampilkanHasil(angka1, angka2, hasilJumlah);
+
     return 0;
 }
 ```
 
 
 Penjelasan Program :
-Program di atas untuk membaca satu karakter yang dimasukkan pengguna, kemudian menampilkan kembali karakter tersebut di layar.
+Program di atas untuk melakukan penjumlahan dua bilangan dengan bantuan fungsi. Fungsi tambah digunakan untuk menghitung hasil penjumlahan, sementara fungsi tampilkanHasil bertugas menampilkan hasilnya. Dengan begitu, di fungsi utama angka 10 dan 5 dijumlahkan, lalu hasil penjumlahan tersebut ditulis ke layar.
+
+### 7. Call By Pointer
+```
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a = 10, b = 20;
+    cout << "Sebelum ditukar: a = " << a << ", b = " << b << endl;
+    tukar(&a, &b);
+    cout << "Setelah ditukar: a = " << a << ", b = " << b << endl;
+    return 0;
+}
+
+void tukar(int *px, int *py)
+{
+    int temp = *px;
+    *px = *py;
+    *py = temp;
+}
+```
+
+
+Penjelasan Program :
+Program di atas untuk menukar nilai dua variabel dengan metode call by pointer. Variabel a bernilai 10 dan b bernilai 20, kemudian alamat keduanya dikirim ke fungsi tukar. Di dalam fungsi itu nilainya dipertukarkan, sehingga setelah proses selesai nilai a menjadi 20 dan b menjadi 10.
+
+### 8. Call By Reference
+```
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a = 10, b = 20;
+    cout << "Sebelum ditukar: a = " << a << ", b = " << b << endl;
+    tukar(a, b);
+    cout << "Setelah ditukar: a = " << a << ", b = " << b << endl;
+    return 0;
+}
+
+void tukar(int &x, int &y)
+{
+    int temp = x;
+    x = y;
+    y = temp;
+}
+```
+
+
+Penjelasan Program :
+Program di atas untuk menukar nilai dua variabel dengan metode call by reference. Pada cara ini, parameter fungsi langsung berupa referensi variabel, sehingga proses penukaran menjadi lebih sederhana. Hasil akhirnya sama, nilai a dan b berhasil ditukar setelah fungsi dijalankan.
 
 
 ## Unguided
