@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 1 <br> Modul 1 Pengenalan Bahasa C++ (Bagian Dua) </h1>
+# <h1 align="center">Laporan Praktikum Modul 2 <br> Modul 2 Pengenalan Bahasa C++ (Bagian Dua) </h1>
 <p align="center">Ajda Mutiara Zahra - 103112400210</p>
 
 ## Dasar Teori
