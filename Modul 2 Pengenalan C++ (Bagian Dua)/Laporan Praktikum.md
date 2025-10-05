@@ -228,14 +228,14 @@ Buatlah sebuah program untuk melakukan transpose pada sebuah matriks persegi ber
 Contoh Output:
 
 Matriks Awal:
-1 2 3
+```1 2 3
 4 5 6
-7 8 9
+7 8 9```
 
 Matriks Hasil Transpose:
-1 4 7
+```1 4 7
 2 5 8
-3 6 9
+3 6 9```
 
 
 ```
