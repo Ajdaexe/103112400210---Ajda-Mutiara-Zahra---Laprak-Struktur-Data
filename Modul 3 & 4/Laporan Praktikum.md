@@ -7,52 +7,247 @@ Array adalah kumpulan data dengan tipe yang sama yang disimpan dalam satu variab
 ## Guided
 
 ### 1. Array
+*mahasiswa.h*
 ```
-#include <iostream>
-using namespace std;
+#ifndef MAHASISWA_H_INCLUDED
+#define MAHASISWA_H_INCLUDED
+struct mahasiswa
+{
+    char nim[10];
+    int nilai1, nilai2;
+};
+void inputMhs(mahasiswa &m);
+float rata2(mahasiswa m);
+#endif 
+```
+*mahasiswa.cpp*
+```
+#include "mahasiswa.h" 
+#include <iostream> 
+using namespace std; 
 
-int main(){
-    int nilai[] = {1,2,3,4,5};
-
-    for (int i = 0; i < 5; i++)
-    {
-        cout << "elemen ke-" << i << "=" << nilai[i] << endl;
-    }
-    return 0;
+void inputMhs(mahasiswa &m)
+{
+    cout << "input nama = ";
+    cin >> (m).nim;
+    cout << "input nilai = ";
+    cin >> (m).nilai1;
+    cout << "input nilai2 = ";
+    cin >> (m).nilai2;
+}
+float rata2(mahasiswa m)
+{
+    return float(m.nilai1 + m.nilai2) / 2;
 }
 ```
-Penjelasan Program :
-Program di atas untuk menyimpan lima angka dalam sebuah array dan kemudian menampilkannya satu per satu. Isi array adalah angka 1 sampai 5, dan melalui perulangan for, setiap elemen ditampilkan sesuai dengan indeksnya sehingga pengguna bisa melihat posisi serta nilai dari masing-masing elemen.
-
-### 2. Array 2D
+*main.cpp*
 ```
 #include <iostream>
+#include "mahasiswa.h"
 using namespace std;
 
 int main()
 {
-    int matriks[3][3] = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}};
+    mahasiswa mhs;
+    inputMhs(mhs);
+    cout << "rata - rata = " << rata2(mhs);
+    return 0;
+}
+```
 
-    for (int i = 0; i < 3; ++i)
-    {
-        for (int j = 0; j < 3; ++j)
-        {
-            cout << matriks[i][j] << " ";
+Penjelasan Program :
+Program di atas untuk menyimpan lima angka dalam sebuah array dan kemudian menampilkannya satu per satu. Isi array adalah angka 1 sampai 5, dan melalui perulangan for, setiap elemen ditampilkan sesuai dengan indeksnya sehingga pengguna bisa melihat posisi serta nilai dari masing-masing elemen.
+
+### 2. Linked List
+```
+#include <iostream>
+using namespace std;
+
+// Struktur Node
+struct Node {
+    int data;
+    Node* next;
+};
+
+// Pointer awal dan akhir
+Node* head = nullptr;
+
+// Fungsi untuk membuat node baru
+Node* createNode(int data) {
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = nullptr;
+    return newNode;
+}
+
+void insertDepan(int data) {
+    Node* newNode = createNode(data);
+    newNode -> next = head;
+    head = newNode;
+    cout << "Data " << data << " berhasil di tambahkan di depan. \n";
+}
+
+void insertBelakang(int data) {
+    Node* newNode = createNode(data);
+    if (head == nullptr) {
+        head = newNode;
+    } else {
+        Node* temp = head;
+        while (temp->next != nullptr) {
+            temp = temp->next;
         }
-        // pindah baris setelah setiap baris matriks selesai dicetak
-        cout << endl;
+        temp->next = newNode;
     }
+    cout << "Data " << data << " berhasil ditambahkan di belakang.\n";
+}
+
+void insertSetelah(int target, int dataBaru) {
+    Node* temp = head;
+    while (temp != nullptr && temp->data != target) {
+        temp = temp->next;
+    }
+
+    if (temp == nullptr) {
+        cout << "Data " << target << " tidak ditemukan!\n";
+    } else {
+        Node* newNode = createNode(dataBaru);
+        newNode->next = temp->next;
+        temp->next = newNode;
+        cout << "Data " << dataBaru << " berhasil disisipkan setelah " << target << ".\n";
+    }
+}
+
+// ========== DELETE FUNCTION ==========
+void hapusNode(int data) {
+    if (head == nullptr) {
+        cout << "List kosong!\n";
+        return;
+    }
+
+    Node* temp = head;
+    Node* prev = nullptr;
+
+    // Jika data di node pertama
+    if (temp != nullptr && temp->data == data) {
+        head = temp->next;
+        delete temp;
+        cout << "Data " << data << " berhasil dihapus.\n";
+        return;
+    }
+
+    // Cari node yang akan dihapus
+    while (temp != nullptr && temp->data != data) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // Jika data tidak ditemukan
+    if (temp == nullptr) {
+        cout << "Data " << data << " tidak ditemukan!\n";
+        return;
+    }
+
+    prev->next = temp->next;
+    delete temp;
+    cout << "Data " << data << " berhasil dihapus.\n";
+}
+
+// ========== UPDATE FUNCTION ==========
+void updateNode(int dataLama, int dataBaru) {
+    Node* temp = head;
+    while (temp != nullptr && temp->data != dataLama) {
+        temp = temp->next;
+    }
+
+    if (temp == nullptr) {
+        cout << "Data " << dataLama << " tidak ditemukan!\n";
+    } else {
+        temp->data = dataBaru;
+        cout << "Data " << dataLama << " berhasil diupdate menjadi " << dataBaru << ".\n";
+    }
+}
+
+// ========== DISPLAY FUNCTION ==========
+void tampilkanList() {
+    if (head == nullptr) {
+        cout << "List kosong!\n";
+        return;
+    }
+
+    Node* temp = head;
+    cout << "Isi Linked List: ";
+    while (temp != nullptr) {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL\n";
+}
+
+// ========== MAIN PROGRAM ==========
+int main() {
+    int pilihan, data, target, dataBaru;
+
+    do {
+        cout << "\n=== MENU SINGLE LINKED LIST ===\n";
+        cout << "1. Insert Depan\n";
+        cout << "2. Insert Belakang\n";
+        cout << "3. Insert Setelah\n";
+        cout << "4. Hapus Data\n";
+        cout << "5. Update Data\n";
+        cout << "6. Tampilkan List\n";
+        cout << "0. Keluar\n";
+        cout << "Pilih: ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+            case 1:
+                cout << "Masukkan data: ";
+                cin >> data;
+                insertDepan(data);
+                break;
+            case 2:
+                cout << "Masukkan data: ";
+                cin >> data;
+                insertBelakang(data);
+                break;
+            case 3:
+                cout << "Masukkan data target: ";
+                cin >> target;
+                cout << "Masukkan data baru: ";
+                cin >> dataBaru;
+                insertSetelah(target, dataBaru);
+                break;
+            case 4:
+                cout << "Masukkan data yang ingin dihapus: ";
+                cin >> data;
+                hapusNode(data);
+                break;
+            case 5:
+                cout << "Masukkan data lama: ";
+                cin >> data;
+                cout << "Masukkan data baru: ";
+                cin >> dataBaru;
+                updateNode(data, dataBaru);
+                break;
+            case 6:
+                tampilkanList();
+                break;
+            case 0:
+                cout << "Program selesai.\n";
+                break;
+            default:
+                cout << "Pilihan tidak valid!\n";
+        }
+    } while (pilihan != 0);
 
     return 0;
 }
 
+
 ```
 
 Penjelasan Program :
-Program di atas untuk membuat sebuah matriks berukuran 3x3 yang berisi angka 1 sampai 9, lalu mencetaknya ke layar dalam bentuk tabel. Proses pencetakan dilakukan dengan perulangan bersarang, sehingga setiap baris matriks ditampilkan dengan rapi sesuai urutan kolomnya.
+Program di atas adalah implementasi Single Linked List dalam bahasa C++. . Struktur data ini terdiri dari node-node yang saling terhubung, di mana setiap node berisi data dan pointer yang menunjuk ke node berikutnya. Fungsi insertDepan dan insertBelakang digunakan untuk menambah node di awal dan di akhir list, sementara insertSetelah menyisipkan node di posisi tertentu. Untuk menghapus node, ada fungsi hapusNode yang mencari dan menghapus data yang diinginkan, dan updateNode digunakan untuk mengubah nilai data. Seluruh fungsi ini bekerja sama dengan tampilkanList yang bertugas menampilkan seluruh isi list, sehingga program ini menyediakan operasi dasar untuk mengelola data secara dinamis.
 
 ### 3. Pointer
 ```
