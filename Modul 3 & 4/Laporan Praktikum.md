@@ -56,7 +56,7 @@ int main()
 ```
 
 Penjelasan Program :
-Program di atas untuk menyimpan lima angka dalam sebuah array dan kemudian menampilkannya satu per satu. Isi array adalah angka 1 sampai 5, dan melalui perulangan for, setiap elemen ditampilkan sesuai dengan indeksnya sehingga pengguna bisa melihat posisi serta nilai dari masing-masing elemen.
+Program ini adalah contoh sederhana bagaimana kode C++ dapat dipecah menjadi beberapa file untuk meningkatkan keterbacaan dan pengelolaan proyek. File mahasiswa.h bertindak sebagai "header" yang berisi deklarasi atau "cetak biru" untuk struktur data mahasiswa dan prototipe (penjelasan singkat) dari fungsi-fungsi inputMhs serta rata2. Kemudian, file mahasiswa.cpp berfungsi sebagai "implementasi" di mana kode dari fungsi-fungsi tersebut ditulis secara lengkap. Terakhir, file main.cpp adalah program utama yang menyertakan (#include) file mahasiswa.h untuk dapat menggunakan struct dan fungsi yang telah didefinisikan, sehingga program dapat berjalan dengan menginput data mahasiswa dan menampilkan rata-rata nilainya. Konsep ini membuat kode lebih terstruktur dan mudah diatur, terutama untuk proyek yang lebih besar.
 
 ### 2. Linked List
 ```
@@ -249,190 +249,11 @@ int main() {
 Penjelasan Program :
 Program di atas adalah implementasi Single Linked List dalam bahasa C++. . Struktur data ini terdiri dari node-node yang saling terhubung, di mana setiap node berisi data dan pointer yang menunjuk ke node berikutnya. Fungsi insertDepan dan insertBelakang digunakan untuk menambah node di awal dan di akhir list, sementara insertSetelah menyisipkan node di posisi tertentu. Untuk menghapus node, ada fungsi hapusNode yang mencari dan menghapus data yang diinginkan, dan updateNode digunakan untuk mengubah nilai data. Seluruh fungsi ini bekerja sama dengan tampilkanList yang bertugas menampilkan seluruh isi list, sehingga program ini menyediakan operasi dasar untuk mengelola data secara dinamis.
 
-### 3. Pointer
-```
-#include <iostream>
-using namespace std;
-
-int main(){
-    int umur = 25;
-    int *p_umur;
-
-    p_umur = &umur;
-
-    cout << "nilai 'umur' : " << umur << endl;
-    cout << "Alamat Memori 'umur' : " << umur << endl;
-    cout << "nilai  'umur' : " << umur << endl;
-    cout << "nilai 'umur' : " << umur << endl;
-    cout << "nilai 'umur' : " << umur << endl;
-}
-```
-
-Penjelasan Program :
-Program di atas untuk menunjukkan cara penggunaan pointer dalam C++. Variabel umur diberikan nilai 25, lalu dibuat pointer yang menunjuk ke alamat memori variabel tersebut. Seharusnya, program bisa menampilkan nilai dan alamat memori, tetapi dalam kode ini yang tercetak masih berupa nilai variabel saja.
-
-### 4. Array Pointer
-
-```
-#include <iostream>
-using namespace std;
-
-int main()
-{
-    int data[5] = {10, 20, 30, 40, 50};
-    int *p_data = data;
-
-    cout << "Mengakses elemen array cara normal:" << endl;
-    for (int i = 0; i < 5; ++i)
-    {
-        cout << "Nilai elemen ke-" << i << " : " << data[i] << endl;
-    }
-
-    cout << "Mengakses elemen array menggunakan pointer:" << endl;
-    for (int i = 0; i < 5; ++i)
-    {
-        cout << "Nilai elemen ke-" << i << " : " << *(p_data + i) << endl;
-    }
-
-    return 0;
-}
-
-```
-
-Penjelasan Program :
-Program di atas untuk menjelaskan dua cara mengakses elemen sebuah array, yaitu secara langsung dengan indeks dan melalui pointer. Dengan menggunakan indeks, elemen ditampilkan menggunakan data[i], sedangkan dengan pointer elemen diakses dengan operasi *(p_data + i). Keduanya menghasilkan tampilan nilai array yang sama.
-
-### 5. String
-```
-#include <iostream>
-using namespace std;
-
-int main() {
-    char pesan_array[] = "Nasi Padang";
-    char *pesan_pointer = "Ayam Bakar 23";
-
-    cout << "String Array: " << pesan_array << endl;
-    cout << "String Pointer: " << pesan_pointer << endl;
-
-    // Mengubah karakter dalam array diperbolehkan
-    pesan_array[0] = 'h';
-    cout << "String Array setelah diubah: " << pesan_array << endl;
-
-    // Pointer dapat diubah untuk menunjuk ke string lain
-    pesan_pointer = "Sariman";
-    cout << "String Pointer setelah menunjuk ke string lain: " << pesan_pointer << endl;
-
-    return 0;
-}
-```
-
-Penjelasan Program :
-Program di atas untuk memperlihatkan perbedaan antara string yang disimpan dalam array karakter dan string yang disimpan menggunakan pointer. String dalam array karakter dapat diubah isinya, misalnya huruf pertama diganti, sedangkan string pointer tidak dapat diubah isinya secara langsung, tetapi bisa diarahkan ke string lain.
-
-### 6. Fungsi
-```
-#include <iostream>
-using namespace std;
-
-int tambah(int a, int b)
-{
-    return a + b;
-}
-
-void tampilkanHasil(int a, int b, int hasil)
-{
-    cout << "Hasil penjumlahan " << a << " + " << b << " adalah: " << hasil << endl;
-}
-
-int main()
-{
-    int angka1 = 10;
-    int angka2 = 5;
-
-    int hasilJumlah = tambah(angka1, angka2);
-
-    tampilkanHasil(angka1, angka2, hasilJumlah);
-
-    return 0;
-}
-```
-
-
-Penjelasan Program :
-Program di atas untuk melakukan penjumlahan dua bilangan dengan bantuan fungsi. Fungsi tambah digunakan untuk menghitung hasil penjumlahan, sementara fungsi tampilkanHasil bertugas menampilkan hasilnya. Dengan begitu, di fungsi utama angka 10 dan 5 dijumlahkan, lalu hasil penjumlahan tersebut ditulis ke layar.
-
-### 7. Call By Pointer
-```
-#include <iostream>
-using namespace std;
-
-int main()
-{
-    int a = 10, b = 20;
-    cout << "Sebelum ditukar: a = " << a << ", b = " << b << endl;
-    tukar(&a, &b);
-    cout << "Setelah ditukar: a = " << a << ", b = " << b << endl;
-    return 0;
-}
-
-void tukar(int *px, int *py)
-{
-    int temp = *px;
-    *px = *py;
-    *py = temp;
-}
-```
-
-
-Penjelasan Program :
-Program di atas untuk menukar nilai dua variabel dengan metode call by pointer. Variabel a bernilai 10 dan b bernilai 20, kemudian alamat keduanya dikirim ke fungsi tukar. Di dalam fungsi itu nilainya dipertukarkan, sehingga setelah proses selesai nilai a menjadi 20 dan b menjadi 10.
-
-### 8. Call By Reference
-```
-#include <iostream>
-using namespace std;
-
-int main()
-{
-    int a = 10, b = 20;
-    cout << "Sebelum ditukar: a = " << a << ", b = " << b << endl;
-    tukar(a, b);
-    cout << "Setelah ditukar: a = " << a << ", b = " << b << endl;
-    return 0;
-}
-
-void tukar(int &x, int &y)
-{
-    int temp = x;
-    x = y;
-    y = temp;
-}
-```
-
-
-Penjelasan Program :
-Program di atas untuk menukar nilai dua variabel dengan metode call by reference. Pada cara ini, parameter fungsi langsung berupa referensi variabel, sehingga proses penukaran menjadi lebih sederhana. Hasil akhirnya sama, nilai a dan b berhasil ditukar setelah fungsi dijalankan.
-
-
 ## Unguided
 
 ### Soal 1
 
-Buatlah sebuah program untuk melakukan transpose pada sebuah matriks persegi berukuran 3x3. Operasi transpose adalah mengubah baris menjadi kolom dan sebaliknya. Inisialisasi matriks awal di dalam kode, kemudian buat logika untuk melakukan transpose dan simpan hasilnya ke dalam matriks baru. Terakhir, tampilkan matriks awal dan matriks hasil transpose.
-
-Contoh Output:
-
-Matriks Awal:
-1 2 3
-4 5 6
-7 8 9
-
-Matriks Hasil Transpose:
-1 4 7
-2 5 8
-3 6 9
-
-
+buatlah single linked list untuk Antrian yang menyimpan data pembeli( nama dan pesanan). program memiliki beberapa menu seperti tambah antrian,  layani antrian(hapus), dan tampilkan antrian. \*antrian pertama harus yang pertama dilayani
 ```
 #include <iostream>
 using namespace std;
@@ -496,13 +317,7 @@ Program di atas untuk menampilkan matriks awal dan hasil transpose. User menginp
 
 
 ### Soal 2
-
-Buatlah program yang menunjukkan penggunaan call by reference. Buat sebuah prosedur bernama kuadratkan yang menerima satu parameter integer secara referensi (&). Prosedur ini akan mengubah nilai asli variabel yang dilewatkan dengan nilai kuadratnya. Tampilkan nilai variabel di main() sebelum dan sesudah memanggil prosedur untuk membuktikan perubahannya. 
-
-Contoh Output:
-
-Nilai awal: 5
-Nilai setelah dikuadratkan: 25
+buatlah program kode untuk membalik (reverse) singly linked list (1-2-3 menjadi 3-2-1) 
 
 
 ```
