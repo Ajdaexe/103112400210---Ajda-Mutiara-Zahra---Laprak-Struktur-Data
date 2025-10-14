@@ -355,8 +355,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](OUTPUT/TRANSPOSE2.PNG)
-
+> ![Screenshot bagian x](OUTPUT/OUPUT1.png)
 Program di atas untuk membuat sistem antrian pembeli menggunakan konsep single linked list. Program ini menyimpan data pembeli berupa nama dan pesanan, lalu menyediakan menu untuk menambah pembeli baru ke dalam antrian, melayani pembeli yang berada di urutan pertama, dan menampilkan seluruh daftar antrian yang sedang menunggu. Setiap kali pembeli baru ditambahkan, datanya akan ditempatkan di bagian akhir antrian, sedangkan pembeli yang dilayani adalah yang paling awal datang (sesuai prinsip FIFO atau First In First Out). Dengan cara ini, program dapat meniru proses antrian seperti di kasir atau tempat pelayanan pada umumnya.
 
 ### Soal 2
