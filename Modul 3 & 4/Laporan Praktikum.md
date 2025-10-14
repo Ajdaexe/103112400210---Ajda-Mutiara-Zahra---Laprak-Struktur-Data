@@ -471,7 +471,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](OUTPUT/CALLBYREF.PNG)
+> ![Screenshot bagian x](OUTPUT/OUPUT1.png)
 
 Program di atas untuk membuat dan memanipulasi data pada single linked list dengan beberapa fitur dasar. Program ini bisa menambahkan data di bagian depan atau belakang list, menampilkan seluruh isi list, serta membalik urutan data dalam list (reverse). Saat data dimasukkan ke depan, elemen baru menjadi head atau node pertama, sedangkan saat dimasukkan ke belakang, elemen ditambahkan di akhir list. Fitur tampil digunakan untuk menelusuri dan menampilkan semua data dari awal hingga akhir, sementara fitur reverse membalik arah hubungan antar node sehingga urutan datanya menjadi terbalik. Program ini berjalan menggunakan menu pilihan agar pengguna bisa mengatur data secara interaktif.
 
