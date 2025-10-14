@@ -2,11 +2,11 @@
 <p align="center">Ajda Mutiara Zahra - 103112400210</p>
 
 ## Dasar Teori
-Array adalah kumpulan data dengan tipe yang sama yang disimpan dalam satu variabel, sehingga memudahkan pengolahan data yang jumlahnya banyak. Matriks adalah bentuk lanjutan dari array, di mana data disusun dalam baris dan kolom layaknya tabel, dan bisa dipakai untuk berbagai operasi matematika, misalnya transpose. Pointer adalah variabel khusus yang menyimpan alamat memori dari variabel lain, sehingga kita bisa mengakses atau mengubah data secara langsung lewat alamat tersebut. Sedangkan call by reference adalah cara agar sebuah variabel bisa diproses lewat alamatnya, sehingga perubahan yang dilakukan di dalam fungsi atau blok program akan langsung memengaruhi nilai variabel aslinya.
+Abstract Data Type (ADT) merupakan konsep dasar dalam pemrograman yang digunakan untuk membuat tipe data baru yang memiliki struktur dan operasi tertentu sesuai kebutuhan. Salah satu penerapan dari ADT adalah Singly Linked List, yaitu struktur data dinamis yang tersusun dari simpul-simpul (node) yang saling terhubung melalui pointer. Setiap node terdiri dari dua bagian, yaitu data dan pointer yang menunjuk ke node berikutnya. Singly Linked List bersifat fleksibel karena ukurannya dapat bertambah atau berkurang selama program berjalan, berbeda dengan array yang bersifat statis. Operasi dasar yang dapat dilakukan pada struktur ini meliputi pembuatan list (create list), penambahan elemen (insert), penghapusan elemen (delete), penelusuran (view), pencarian data (search), dan pembaruan data (update). Dengan menerapkan konsep ADT pada Singly Linked List, pengelolaan data menjadi lebih efisien, terstruktur, dan mudah dikembangkan dalam pemrograman.
 
 ## Guided
 
-### 1. Array
+### 1. Compile
 *mahasiswa.h*
 ```
 #ifndef MAHASISWA_H_INCLUDED
@@ -258,63 +258,106 @@ buatlah single linked list untuk Antrian yang menyimpan data pembeli( nama dan p
 #include <iostream>
 using namespace std;
 
-int main ()
+struct pembeli {
+    char nama[30];
+    char pesanan[50];
+    pembeli *next;
+};
 
+pembeli *antrianPertama = NULL;
+pembeli *antrianTerakhir = NULL;
 
-{
-    int matriks [3][3];
-    int transpose [3][3];
+void tambahAntrian() {
+    pembeli *baru = new pembeli;
+    cout << "Masukkan nama pembeli  : ";
+    cin >> baru->nama;
+    cout << "Masukkan pesanan       : ";
+    cin >> baru->pesanan;
+    baru->next = NULL;
 
-    cout << "Input Matriks : " << endl;
-    for (int i = 0; i < 3; i++)
-
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            cout << "Elemen [" << i << "][" << j << "] :";
-            cin >> matriks [i][j];
-        }
+    if (antrianPertama == NULL) {
+        antrianPertama = antrianTerakhir = baru;
+    } else {
+        antrianTerakhir->next = baru;
+        antrianTerakhir = baru;
     }
 
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 3; j++)
+    cout << "Pembeli " << baru->nama << " berhasil ditambahkan ke antrian.\n";
+}
 
-        {
-            transpose [j][i] = matriks [i][j];
-        }
+void layaniAntrian() {
+    if (antrianPertama == NULL) {
+        cout << "Antrian kosong, tidak ada yang dilayani.\n";
+        return;
     }
 
-    cout << "\nMatriks Awal : " << endl;
-    for (int i = 0; i < 3; i++)
+    pembeli *hapus = antrianPertama;
+    cout << "Melayani pembeli: " << hapus->nama << " (Pesanan: " << hapus->pesanan << ")\n";
+    antrianPertama = antrianPertama->next;
+    delete hapus;
 
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            cout << matriks [i][j] << " ";
-        }
-        cout << endl;
+    if (antrianPertama == NULL) {
+        antrianTerakhir = NULL;
     }
-    cout << "\nMatriks Transpose : " << endl;
-    for (int i = 0; i< 3; i++)
-    {
-        for (int j = 0; j <  3; j++) 
-        {
-            cout << transpose [i][j] << " ";
-        }
-        cout << endl;
+}
+
+void tampilkanAntrian() {
+    if (antrianPertama == NULL) {
+        cout << "Antrian kosong.\n";
+        return;
     }
+
+    pembeli *bantu = antrianPertama;
+    int nomor = 1;
+
+    cout << "\n=== DAFTAR ANTRIAN PEMBELI ===\n";
+    while (bantu != NULL) {
+        cout << nomor << ". Nama: " << bantu->nama << ", Pesanan: " << bantu->pesanan << endl;
+        bantu = bantu->next;
+        nomor++;
+    }
+    cout << "==============================\n";
+}
+
+int main() {
+    int pilihan;
+
+    do {
+        cout << "\n=== MENU ANTRIAN PEMBELI ===\n";
+        cout << "1. Tambah Antrian\n";
+        cout << "2. Layani Antrian\n";
+        cout << "3. Tampilkan Antrian\n";
+        cout << "4. Keluar\n";
+        cout << "Pilih menu: ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+            case 1:
+                tambahAntrian();
+                break;
+            case 2:
+                layaniAntrian();
+                break;
+            case 3:
+                tampilkanAntrian();
+                break;
+            case 4:
+                cout << "Program selesai.\n";
+                break;
+            default:
+                cout << "Pilihan tidak valid!\n";
+        }
+    } while (pilihan != 4);
 
     return 0;
-
 }
+
 ```
 
 > Output
 > ![Screenshot bagian x](OUTPUT/TRANSPOSE2.PNG)
 
-Program di atas untuk menampilkan matriks awal dan hasil transpose. User menginput elemen matriks 3x3, lalu program membuat transpose dengan menukar baris jadi kolom. Setelah itu, program menampilkan matriks asli dan matriks hasil transpose.
-
+Program di atas untuk membuat sistem antrian pembeli menggunakan konsep single linked list. Program ini menyimpan data pembeli berupa nama dan pesanan, lalu menyediakan menu untuk menambah pembeli baru ke dalam antrian, melayani pembeli yang berada di urutan pertama, dan menampilkan seluruh daftar antrian yang sedang menunggu. Setiap kali pembeli baru ditambahkan, datanya akan ditempatkan di bagian akhir antrian, sedangkan pembeli yang dilayani adalah yang paling awal datang (sesuai prinsip FIFO atau First In First Out). Dengan cara ini, program dapat meniru proses antrian seperti di kasir atau tempat pelayanan pada umumnya.
 
 ### Soal 2
 buatlah program kode untuk membalik (reverse) singly linked list (1-2-3 menjadi 3-2-1) 
@@ -322,29 +365,116 @@ buatlah program kode untuk membalik (reverse) singly linked list (1-2-3 menjadi 
 
 ```
 #include <iostream>
-using namespace std; 
+using namespace std;
 
-int main ()
-{
-    int angka;
-    cout << "Masukkan Angka : ";
-    cin >> angka;
+struct Node {
+    int data;
+    Node *next;
+};
 
-    cout << "Nilai Awal : " << angka << endl;
+Node *head = NULL;
 
-    int &ref = angka;
-    ref = ref * ref;
-    cout << "Nilai Setelah Di Kuadratkan : " << angka << endl;
+void tambahDepan(int data) {
+    Node *baru = new Node;
+    baru->data = data;
+    baru->next = head;
+    head = baru;
+    cout << "Data " << data << " berhasil ditambahkan di depan.\n";
+}
+
+void tambahBelakang(int data) {
+    Node *baru = new Node;
+    baru->data = data;
+    baru->next = NULL;
+    if (head == NULL) {
+        head = baru;
+    } else {
+        Node *bantu = head;
+        while (bantu->next != NULL) {
+            bantu = bantu->next;
+        }
+        bantu->next = baru;
+    }
+    cout << "Data " << data << " berhasil ditambahkan di belakang.\n";
+}
+
+void tampilkanList() {
+    if (head == NULL) {
+        cout << "List kosong.\n";
+        return;
+    }
+    Node *bantu = head;
+    cout << "Isi Linked List: ";
+    while (bantu != NULL) {
+        cout << bantu->data << " -> ";
+        bantu = bantu->next;
+    }
+    cout << "NULL\n";
+}
+
+void reverseList() {
+    if (head == NULL) {
+        cout << "List kosong, tidak bisa dibalik.\n";
+        return;
+    }
+    Node *prev = NULL;
+    Node *current = head;
+    Node *next = NULL;
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    head = prev;
+    cout << "Linked list berhasil dibalik.\n";
+}
+
+int main() {
+    int pilihan, data;
+    do {
+        cout << "1. Tambah Depan\n";
+        cout << "2. Tambah Belakang\n";
+        cout << "3. Tampilkan List\n";
+        cout << "4. Balik (Reverse) List\n";
+        cout << "5. Keluar\n";
+        cout << "Pilih menu: ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+            case 1:
+                cout << "Masukkan data: ";
+                cin >> data;
+                tambahDepan(data);
+                break;
+            case 2:
+                cout << "Masukkan data: ";
+                cin >> data;
+                tambahBelakang(data);
+                break;
+            case 3:
+                tampilkanList();
+                break;
+            case 4:
+                reverseList();
+                break;
+            case 5:
+                cout << "Program selesai.\n";
+                break;
+            default:
+                cout << "Pilihan tidak valid!\n";
+        }
+    } while (pilihan != 5);
 
     return 0;
 }
+
 ```
 
 > Output
 > ![Screenshot bagian x](OUTPUT/CALLBYREF.PNG)
 
-Program di atas untuk mengkuadratkan angka dengan reference. Pertama user memasukkan angka, lalu ditampilkan nilainya. Reference `ref` menunjuk ke variabel `angka`, jadi saat `ref` dikalikan dengan dirinya sendiri, nilai `angka` ikut berubah. Terakhir program menampilkan hasil angka setelah dikuadratkan.
-
+Program di atas untuk membuat dan memanipulasi data pada single linked list dengan beberapa fitur dasar. Program ini bisa menambahkan data di bagian depan atau belakang list, menampilkan seluruh isi list, serta membalik urutan data dalam list (reverse). Saat data dimasukkan ke depan, elemen baru menjadi head atau node pertama, sedangkan saat dimasukkan ke belakang, elemen ditambahkan di akhir list. Fitur tampil digunakan untuk menelusuri dan menampilkan semua data dari awal hingga akhir, sementara fitur reverse membalik arah hubungan antar node sehingga urutan datanya menjadi terbalik. Program ini berjalan menggunakan menu pilihan agar pengguna bisa mengatur data secara interaktif.
 
 ## Referensi
 
