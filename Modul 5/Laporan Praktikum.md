@@ -687,7 +687,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](OUTPUT/OUPUT2.png)
+> ![Screenshot bagian x](OUTPUT/OUTPUT2.png)
 
 Program di atas merupakan sistem pengelolaan data buku yang menggunakan konsep single linked list, di mana setiap node menyimpan informasi buku berupa ISBN, Judul, dan Penulis. Program ini memiliki beberapa fungsi utama. Fungsi tambahBuku() digunakan untuk menambahkan data buku baru ke bagian akhir daftar. Fungsi hapusISBN() berfungsi untuk menghapus data buku berdasarkan nomor ISBN yang dimasukkan pengguna. Fungsi perbaruiBuku() digunakan untuk memperbarui data buku (judul dan penulis) berdasarkan ISBN tertentu. Fungsi lihatBuku() menampilkan seluruh daftar buku yang tersimpan dalam linked list secara berurutan. Kemudian, fungsi cariBuku() berfungsi untuk mencari buku berdasarkan ISBN atau judul dengan bantuan fungsi sama() yang membandingkan dua string karakter satu per satu. Semua fitur ini dijalankan melalui menu utama di dalam fungsi main(), sehingga pengguna dapat menambah, menghapus, memperbarui, menampilkan, dan mencari buku dengan mudah.
 
