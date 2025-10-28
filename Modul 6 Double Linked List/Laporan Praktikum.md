@@ -522,7 +522,8 @@ void deleteAfter(List &L, address Prec, address &P) {
 ```
 
 > Output
-> ![Screenshot bagian x](OUTPUT/OUTPUT1.png)
+> ![Screenshot bagian x](OUTPUT/OUTPUT1.PNG)
+> ![Screenshot bagian x](OUTPUT/OUTPUT2.PNG)
 
 Program di atas merupakan sistem antrian pembeli yang dibuat menggunakan konsep single linked list. Program ini memiliki beberapa fungsi utama, yaitu tambahAntrian() untuk menambah data pembeli baru ke bagian akhir antrian, layaniAntrian() untuk melayani dan menghapus pembeli yang berada di urutan pertama, tampilkanAntrian() untuk menampilkan seluruh data pembeli yang sedang mengantri, serta cariPembeli() untuk mencari pembeli berdasarkan nama atau pesanan dengan bantuan fungsi pembanding sama(). Semua fungsi tersebut dijalankan melalui menu utama di dalam main(), sehingga pengguna dapat dengan mudah menambah, mencari, melayani, dan melihat daftar antrian pembeli sesuai prinsip FIFO (First In First Out).
 
