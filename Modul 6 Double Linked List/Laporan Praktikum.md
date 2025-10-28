@@ -6,6 +6,7 @@ Double linked list merupakan salah satu bentuk struktur data dinamis yang menggu
 ## Guided
 
 ### 1. Double Linked List
+```
 //double linked list untuk undo reundo, lebih kcil singly karena single atau cm menunjuk 1
 //prev pengait belakang
 //next pengait depan
