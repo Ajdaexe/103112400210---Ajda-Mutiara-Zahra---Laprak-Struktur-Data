@@ -141,7 +141,7 @@ printInfo(S);
 return 0;
 }
 
-# Soal 2
+### Soal 2
 Tambahkan prosedur pushAscending( in/out S : Stack, in x : integer)
 int main()
 {
@@ -166,7 +166,7 @@ printInfo(S);
 return 0;
 }
 
-# Soal 3
+### Soal 3
 Tambahkan prosedur getInputStream( in/out S : Stack ). Prosedur akan terus membaca dan
 menerima input user dan memasukkan setiap input ke dalam stack hingga user menekan
 tombol enter. Contoh: gunakan cin.get() untuk mendapatkan inputan user.
@@ -357,7 +357,7 @@ int main() {
 }
 ```
 > Output
-> ![Screenshot bagian x](OUTPUT/OUTPUT1.png)
+> ![Screenshot bagian x](OUTPUT/output.png)
 
 Program di atas untuk Latihan 1 adalah implementasi dasar dari struktur data Stack menggunakan representasi tabel (array). Kode ini berfokus pada pembuatan fungsi-fungsi fundamental yang diperlukan untuk sebuah stack, seperti CreateStack untuk inisialisasi tumpukan kosong (di mana Top = 0 ), push untuk menambahkan elemen baru ke tumpukan (dengan Top = Top + 1 ), dan pop untuk mengambil elemen teratas (dengan TOP = TOP - 1 ).
 
