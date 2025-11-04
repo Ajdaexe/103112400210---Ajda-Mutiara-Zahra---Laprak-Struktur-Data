@@ -359,7 +359,11 @@ int main() {
 > Output
 > ![Screenshot bagian x](OUTPUT/output.png)
 
-Program di atas untuk Latihan 1 adalah implementasi dasar dari struktur data Stack menggunakan representasi tabel (array). Kode ini berfokus pada pembuatan fungsi-fungsi fundamental yang diperlukan untuk sebuah stack, seperti CreateStack untuk inisialisasi tumpukan kosong (di mana Top = 0 ), push untuk menambahkan elemen baru ke tumpukan (dengan Top = Top + 1 ), dan pop untuk mengambil elemen teratas (dengan TOP = TOP - 1 ).
+Program pada Soal 1 menampilkan proses dasar penggunaan stack dengan operasi push, pop, printInfo, dan balikStack. Data dimasukkan dan dihapus sesuai prinsip LIFO (Last In First Out), di mana elemen terakhir yang masuk akan menjadi yang pertama keluar. Setelah semua operasi dilakukan, fungsi balikStack membalik urutan elemen di dalam stack sehingga hasil akhirnya menampilkan isi stack yang urutannya terbalik dari kondisi semula.
+
+Program pada Soal 2 menambahkan prosedur pushAscending, yaitu fungsi untuk menyisipkan elemen baru agar isi stack tetap terurut secara menurun (descending). Setiap kali data baru dimasukkan, program akan memindahkan sementara elemen yang lebih besar agar data baru ditempatkan di posisi yang benar. Hasil akhirnya menunjukkan urutan stack [TOP] 9 8 4 3 3 2, yang menandakan bahwa fungsi ini berjalan dengan benar menjaga keterurutan data dalam stack.
+
+Program pada Soal 3 memperkenalkan prosedur getInputStream, yang memungkinkan pengguna mengetik data secara langsung. Setiap karakter yang dimasukkan akan dikonversi menjadi angka dan dimasukkan ke dalam stack satu per satu sampai pengguna menekan Enter. Misalnya, jika pengguna mengetik “4729601”, maka hasilnya menjadi [TOP] 1 0 6 9 2 7 4. Setelah fungsi balikStack dijalankan, urutannya menjadi kebalikan dari input, sesuai prinsip LIFO pada stack.
 
 
 ## Referensi
