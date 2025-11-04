@@ -286,8 +286,7 @@ int main() {
 }
 ```
 > Output
-> ![Screenshot bagian x](OUTPUT/OUTPUT1.PNG)
-> ![Screenshot bagian x](OUTPUT/OUTPUT2.PNG)
+> ![Screenshot bagian x](OUTPUT/OUTPUT1.png)
 
 Program di atas untuk Latihan 1 adalah implementasi dasar dari struktur data Stack menggunakan representasi tabel (array). Kode ini berfokus pada pembuatan fungsi-fungsi fundamental yang diperlukan untuk sebuah stack, seperti CreateStack untuk inisialisasi tumpukan kosong (di mana Top = 0 ), push untuk menambahkan elemen baru ke tumpukan (dengan Top = Top + 1 ), dan pop untuk mengambil elemen teratas (dengan TOP = TOP - 1 ).
 
@@ -460,8 +459,7 @@ int main() {
 }
 ```
 > Output
-> ![Screenshot bagian x](OUTPUT/OUTPUT1.PNG)
-> ![Screenshot bagian x](OUTPUT/OUTPUT2.PNG)
+> ![Screenshot bagian x](OUTPUT/OUTPUT2.png)
 
 Program di atas untuk Latihan 2 menambahkan prosedur baru yang disebut pushAscending. Berbeda dengan push biasa yang selalu menambahkan elemen di posisi paling atas, fungsi ini dirancang untuk menyisipkan elemen sedemikian rupa sehingga isi stack tetap terurut.
 
@@ -648,7 +646,7 @@ int main() {
 }
 ```
 > Output
-> ![Screenshot bagian x](OUTPUT/OUTPUT1.PNG)
+> ![Screenshot bagian x](OUTPUT/OUTPUT3.png)
 
 Program di atas untuk Latihan 3 memperkenalkan prosedur baru bernama getInputStream, yang bertujuan untuk membuat stack menjadi lebih interaktif. Prosedur ini berfungsi untuk membaca input dari pengguna secara langsung dan memasukkan setiap karakter atau angka yang diketik ke dalam stack satu per satu. Proses input akan terus berlangsung hingga pengguna menekan tombol Enter, yang dapat dideteksi menggunakan fungsi seperti cin.get().
 
