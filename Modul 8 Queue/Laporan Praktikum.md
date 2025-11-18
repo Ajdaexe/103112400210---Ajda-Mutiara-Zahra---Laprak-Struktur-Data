@@ -107,87 +107,45 @@ Program di atas adalah implementasi struktur data queue menggunakan array dengan
 
 ### Soal 1
 
-Buatlah ADT Stack menggunakan ARRAY sebagai berikut di dalam file “stack.h”:
-
-Type infotype : integer
-Type Stack <
-info : array [20] of integer
-top : integer
+Buatlah ADT Queue menggunakan ARRAY sebagai berikut di dalam file “queue.h”:
+Type infotype: integer
+Type Queue: <
+info : array [5] of infotype {index array dalam C++
+dimulai dari 0}
+head, tail : integer
 >
-procedure CreateStack( input/output S : Stack )
-procedure push(input/output S : Stack,
-input x : infotype)
-function pop(input/output t S : Stack )
-→ infotype
-procedure printInfo( input S : Stack )
-procedure balikStack(input/output S :
-Stack )
-
-Program 2 Stack.h
-
-Buatlah implementasi ADT Stack menggunakan Array pada file “stack.cpp” dan “main.cpp”
-int main()
-{
-cout << "Hello world!" <<
-endl;
-Stack S;
-createStack(S);
-Push(S,3);
-Push(S,4);
-Push(S,8);
-pop(S)
-Push(S,2);
-Push(S,3);
-pop(S);
-Push(S,9);
-printInfo(S);
-cout<<"balik stack"<<endl;
-balikStack(S);
-printInfo(S);
+procedure CreateQueue (input/output Q: Queue)
+function isEmptyQueue (Q: Queue) → boolean
+function isFullQueue (Q: Queue) → boolean
+procedure enqueue (input/output Q: Queue, input x: infotype)
+function dequeue (input/output Q: Queue) → infotype
+procedure printInfo (input Q: Queue)
+Buatlah implementasi ADT Queue pada file “queue.cpp” dengan menerapkan mekanisme
+queue Alternatif 1 (head diam, tail bergerak).
+int main() {
+cout << "Hello World" << endl;
+Queue Q;
+createQueue(Q);
+cout<<"----------------------"<<endl;
+cout<<" H - T \t | Queue info"<<endl;
+cout<<"----------------------"<<endl;
+printInfo(Q);
+enqueue(Q,5); printInfo(Q);
+enqueue(Q,2); printInfo(Q);
+enqueue(Q,7); printInfo(Q);
+dequeue(Q); printInfo(Q);
+enqueue(Q,4); printInfo(Q);
+dequeue(Q); printInfo(Q);
+dequeue(Q); printInfo(Q);
 return 0;
-}
 
 ### Soal 2
-Tambahkan prosedur pushAscending( in/out S : Stack, in x : integer)
-int main()
-{
-
-Gambar 7-11 Output stack
-
-STRUKTUR DATA 65
-
-cout << "Hello world!" << endl;
-Stack S;
-createStack(S);
-pushAscending(S,3);
-pushAscending(S,4);
-pushAscending(S,8);
-pushAscending(S,2);
-pushAscending(S,3);
-pushAscending(S,9);
-printInfo(S);
-cout<<"balik stack"<<endl;
-balikStack(S);
-printInfo(S);
-return 0;
-}
+Buatlah implementasi ADT Queue pada file “queue.cpp” dengan menerapkan mekanisme
+queue Alternatif 2 (head bergerak, tail bergerak).
 
 ### Soal 3
-Tambahkan prosedur getInputStream( in/out S : Stack ). Prosedur akan terus membaca dan
-menerima input user dan memasukkan setiap input ke dalam stack hingga user menekan
-tombol enter. Contoh: gunakan cin.get() untuk mendapatkan inputan user.
-int main()
-{
-cout << "Hello world!" << endl;
-Stack S;
-createStack(S);
-getInputStream(S);
-printInfo(S);
-cout<<"balik stack"<<endl;
-balikStack(S);
-printInfo(S);
-return 0;
-}
+Buatlah implementasi ADT Queue pada file “queue.cpp” dengan menerapkan mekanisme
+queue Alternatif 3 (head dan tail berputar).
 
 stack.h
 ```
