@@ -147,188 +147,178 @@ queue Alternatif 2 (head bergerak, tail bergerak).
 Buatlah implementasi ADT Queue pada file “queue.cpp” dengan menerapkan mekanisme
 queue Alternatif 3 (head dan tail berputar).
 
-stack.h
+queue.h
 ```
-#ifndef STACK_H_INCLUDED
-#define STACK_H_INCLUDED
+#ifndef QUEUE_H_INCLUDED
+#define QUEUE_H_INCLUDED
 
 #include <iostream>
 using namespace std;
 
-const int MAX_SIZE = 20;
-
+#define MAX 5
 typedef int infotype;
 
-struct Stack {
-    infotype info[MAX_SIZE + 1];
-    int top;
+struct Queue {
+    infotype info[MAX];
+    int head;
+    int tail;
 };
 
-void CreateStack(Stack &S);
-void push(Stack &S, infotype x);
-infotype pop(Stack &S);
-void printInfo(Stack S);
-void balikStack(Stack &S);
-
-bool isEmpty(Stack S);
-bool isFull(Stack S);
-
-void pushAscending(Stack &S, infotype x);
-
-void getInputStream(Stack &S);
+void CreateQueue(Queue &Q);
+bool isEmptyQueue(Queue Q);
+bool isFullQueue(Queue Q);
+void enqueue(Queue &Q, infotype x);
+void dequeue(Queue &Q);
+void printInfo(Queue Q);
 
 #endif
 ```
 
-stack.cpp
+queue.cpp
 ```
-#include "stack.h"
+#include "queue.h"
 
-void CreateStack(Stack &S) {
-    S.top = 0;
+void CreateQueue(Queue &Q) {
+    Q.head = -1;
+    Q.tail = -1;
 }
 
-bool isEmpty(Stack S) {
-    return S.top == 0;
+bool isEmptyQueue(Queue Q) {
+    return (Q.head == -1 && Q.tail == -1);
 }
 
-bool isFull(Stack S) {
-    return S.top == MAX_SIZE;
+bool isFullQueue(Queue Q) {
+    return (Q.tail == MAX - 1);
 }
 
-void push(Stack &S, infotype x) {
-    if (!isFull(S)) {
-        S.top++;
-        S.info[S.top] = x;
+void enqueue(Queue &Q, infotype x) {
+    if (isFullQueue(Q)) {
+        cout << "Queue penuh! tidak bisa menambah data." << endl;
     } else {
-        cout << "Stack penuh." << endl;
+        if (isEmptyQueue(Q)) {
+            Q.head = 0; 
+        }
+        Q.tail++; 
+        Q.info[Q.tail] = x;
+        cout << "Enqueue: " << x << endl;
     }
 }
 
-infotype pop(Stack &S) {
-    if (!isEmpty(S)) {
-        infotype x = S.info[S.top];
-        S.top--;
-        return x;
+void dequeue(Queue &Q) {
+    if (isEmptyQueue(Q)) {
+        cout << "Queue Kosong! tidak ada data yang di hapus." << endl;
     } else {
-        return -1;
+        infotype temp = Q.info[Q.head];
+        cout << "Dequeue: " << temp << endl;
+
+        if (Q.head == Q.tail) {
+            CreateQueue(Q);
+        } else {
+            for (int i = Q.head; i < Q.tail; i++) {
+                Q.info[i] = Q.info[i + 1];
+            }
+            Q.tail--;
+        }
     }
 }
 
-void printInfo(Stack S) {
-    cout << "[TOP] ";
-    for (int i = S.top; i >= 1; i--) {
-        cout << S.info[i] << " ";
-    }
-    cout << endl;
-}
+//no 1
+// void printInfo(Queue Q) {
+//     if (isEmptyQueue(Q)) {
+//         cout << "empty queue" << endl;
+//     } else {
+//         cout << "Queue info : ";
+//         for (int i = Q.head; i <= Q.tail; i++) {
+//             cout << Q.info[i] << " ";
+//         }
+//         cout << endl;
+//     }
+// }
 
-void balikStack(Stack &S) {
-    Stack temp1, temp2;
-    CreateStack(temp1);
-    CreateStack(temp2);
+//no 2
+// void printInfo(Queue Q) {
+//     if (isEmptyQueue(Q)) {
+//         cout << ">> Antrian sekarang kosong." << endl;
+//     } else {
+//         cout << ">> Isi Antrian:  ";
+//         for (int i = Q.head; i <= Q.tail; i++) {
+//             cout << Q.info[i] << " ";
+//         }
+//         cout << endl;
+//     }
+// }
 
-    while (!isEmpty(S)) {
-        push(temp1, pop(S));
-    }
-    while (!isEmpty(temp1)) {
-        push(temp2, pop(temp1));
-    }
-    while (!isEmpty(temp2)) {
-        push(S, pop(temp2));
-    }
-}
-
-void pushAscending(Stack &S, infotype x) {
-    Stack temp;
-    CreateStack(temp);
-
-    while (!isEmpty(S) && S.info[S.top] > x) {
-        push(temp, pop(S));
-    }
-
-    push(S, x);
-
-    while (!isEmpty(temp)) {
-        push(S, pop(temp));
-    }
-}
-
-void getInputStream(Stack &S) {
-    char c;
-    c = cin.get();
-
-    while (c != '\n') {
-        int x = c - '0';
-        push(S, x);
-        c = cin.get();
+// no 3
+void printInfo(Queue Q) { 
+    if (isEmptyQueue(Q)) {
+        cout << ">> Antrian sekarang kosong." << endl;
+    } else {
+        cout << ">> Isi Antrian:  ";
+        int i = Q.head;
+        while (true) {
+            cout << Q.info[i] << " ";
+            if (i == Q.tail) break;
+            i = (i + 1) % MAX; 
+        }
+        cout << endl;
     }
 }
 ```
-main1.cpp
-```
+
+main.cpp
 #include <iostream>
-#include "stack.h"
+#include "queue.h"
 
 using namespace std;
 
 int main() {
-    cout << "Hello world!" << endl;
-    Stack S;
+    Queue Q;
+    CreateQueue(Q);
 
-    // --- Soal 1 ---
-    cout << "\n--- Soal 1 ---" << endl;
-    CreateStack(S);
-    push(S, 3);
-    push(S, 4);
-    push(S, 8);
-    pop(S);
-    push(S, 2);
-    push(S, 3);
-    pop(S);
-    push(S, 9);
-    printInfo(S);
-    cout << "balik stack" << endl;
-    balikStack(S);
-    printInfo(S);
+    cout << "[Keadaan Awal]" << endl;
+    printInfo(Q);
 
-    // --- Soal 2 ---
-    cout << "\n--- Soal 2 ---" << endl;
-    CreateStack(S);
-    pushAscending(S, 3);
-    pushAscending(S, 4);
-    pushAscending(S, 8);
-    pushAscending(S, 2);
-    pushAscending(S, 3);
-    pushAscending(S, 9);
-    printInfo(S);
-    cout << "balik stack" << endl;
-    balikStack(S);
-    printInfo(S);
+    cout << "\n[Enqueue 5]" << endl;
+    enqueue(Q, 5);
+    printInfo(Q);
 
-    // --- Soal 3 ---
-    cout << "\n--- Soal Latihan 3 ---" << endl;
-    CreateStack(S);
-    cout << "Masukkan angka (diakhiri Enter): ";
-    getInputStream(S);
+    cout << "\n[Enqueue 2]" << endl;
+    enqueue(Q, 2);
+    printInfo(Q);
 
-    printInfo(S);
-    cout << "balik stack" << endl;
-    balikStack(S);
-    printInfo(S);
+    cout << "\n[Enqueue 7]" << endl;
+    enqueue(Q, 7);
+    printInfo(Q);
+
+    cout << "\n[Dequeue]" << endl;
+    dequeue(Q);
+    printInfo(Q);
+
+    cout << "\n[Enqueue 4]" << endl;
+    enqueue(Q, 4);
+    printInfo(Q);
+
+    cout << "\n[Dequeue]" << endl;
+    dequeue(Q);
+    printInfo(Q);
+
+    cout << "\n[Dequeue]" << endl;
+    dequeue(Q);
+    printInfo(Q);
 
     return 0;
-}
+} 
 ```
 > Output
-> ![Screenshot bagian x](OUTPUT/output.png)
+> ![Screenshot bagian 1](OUTPUT/output.png)
+> ![Screenshot bagian 2](OUTPUT/output.png)
+> ![Screenshot bagian 3](OUTPUT/output.png)
 
-Program pada Soal 1 menampilkan proses dasar penggunaan stack dengan operasi push, pop, printInfo, dan balikStack. Data dimasukkan dan dihapus sesuai prinsip LIFO (Last In First Out), di mana elemen terakhir yang masuk akan menjadi yang pertama keluar. Setelah semua operasi dilakukan, fungsi balikStack membalik urutan elemen di dalam stack sehingga hasil akhirnya menampilkan isi stack yang urutannya terbalik dari kondisi semula.
+Soal 1 Program di atas menggunakan metode penampilan data berdasarkan pendekatan queue Alternatif 1, yaitu head berada di posisi tetap dan hanya tail yang bergerak setiap kali elemen ditambahkan. Ketika elemen dihapus, data digeser ke kiri (shifting) agar elemen tetap berurutan mulai dari indeks awal.
 
-Program pada Soal 2 menambahkan prosedur pushAscending, yaitu fungsi untuk menyisipkan elemen baru agar isi stack tetap terurut secara menurun (descending). Setiap kali data baru dimasukkan, program akan memindahkan sementara elemen yang lebih besar agar data baru ditempatkan di posisi yang benar. Hasil akhirnya menunjukkan urutan stack [TOP] 9 8 4 3 3 2, yang menandakan bahwa fungsi ini berjalan dengan benar menjaga keterurutan data dalam stack.
+Soal 2 Program di atas mewakili pendekatan queue Alternatif 2, yaitu baik head maupun tail dapat bergerak maju sesuai operasi yang dilakukan. Pada metode ini, saat terjadi dequeue, head tidak lagi direset menjadi 0 atau dilakukan shifting, melainkan cukup digeser satu langkah ke indeks berikutnya.
 
-Program pada Soal 3 memperkenalkan prosedur getInputStream, yang memungkinkan pengguna mengetik data secara langsung. Setiap karakter yang dimasukkan akan dikonversi menjadi angka dan dimasukkan ke dalam stack satu per satu sampai pengguna menekan Enter. Misalnya, jika pengguna mengetik “4729601”, maka hasilnya menjadi [TOP] 1 0 6 9 2 7 4. Setelah fungsi balikStack dijalankan, urutannya menjadi kebalikan dari input, sesuai prinsip LIFO pada stack.
-
+Soal 3 Program di atas menggunakan pendekatan circular queue, di mana head dan tail bergerak secara melingkar menggunakan operasi (i + 1) % MAX
 
 ## Referensi
 
