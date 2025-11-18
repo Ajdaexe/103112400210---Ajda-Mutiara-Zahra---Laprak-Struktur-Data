@@ -311,9 +311,9 @@ int main() {
 } 
 ```
 > Output
-> ![Screenshot bagian 1](OUTPUT/output.png)
-> ![Screenshot bagian 2](OUTPUT/output.png)
-> ![Screenshot bagian 3](OUTPUT/output.png)
+> ![Screenshot bagian 1](OUTPUT/output1.png)
+> ![Screenshot bagian 2](OUTPUT/output2.png)
+> ![Screenshot bagian 3](OUTPUT/output3.png)
 
 Soal 1 Program di atas menggunakan metode penampilan data berdasarkan pendekatan queue Alternatif 1, yaitu head berada di posisi tetap dan hanya tail yang bergerak setiap kali elemen ditambahkan. Ketika elemen dihapus, data digeser ke kiri (shifting) agar elemen tetap berurutan mulai dari indeks awal.
 
