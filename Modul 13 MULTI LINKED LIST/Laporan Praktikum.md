@@ -1,8 +1,8 @@
-# <h1 align="center">Laporan Praktikum Modul 10 Tree (Bagian Pertama) <br> Modul 10 Tree (Bagian Pertama)  </h1>
+# <h1 align="center">Laporan Praktikum Modul 13 Multi Linked List <br> Modul 13 Multi Linked List  </h1>
 <p align="center">Ajda Mutiara Zahra - 103112400210</p>
 
 ## Dasar Teori
-Tree merupakan struktur data non-linear yang digunakan untuk merepresentasikan data secara hierarkis, di mana setiap elemen disebut node dan saling terhubung melalui relasi parent dan child, dengan satu node utama sebagai root. Salah satu jenis tree yang sering digunakan adalah Binary Search Tree (BST), yaitu binary tree yang memiliki aturan bahwa nilai pada subtree kiri harus lebih kecil dari node induk, sedangkan nilai pada subtree kanan harus lebih besar, sehingga memudahkan proses pencarian, penyisipan, dan pengolahan data. Implementasi tree sangat erat kaitannya dengan konsep rekursif, karena setiap subtree memiliki struktur yang sama dengan tree utama, sehingga operasi seperti insert, traversal, perhitungan jumlah node, dan kedalaman tree dapat dilakukan dengan fungsi yang memanggil dirinya sendiri sampai mencapai kondisi dasar (base case). Traversal pada tree merupakan proses mengunjungi seluruh node dengan urutan tertentu, seperti inorder, preorder, dan postorder, yang masing-masing memiliki kegunaan berbeda dalam pengolahan dan penampilan data.
+Multi Linked List merupakan struktur data non-linear yang terdiri dari beberapa linked list yang saling berhubungan, umumnya membentuk relasi antara elemen induk (parent) dan elemen anak (child). Setiap elemen induk dapat memiliki satu atau lebih elemen anak yang terhubung melalui pointer, sehingga membentuk hubungan satu-ke-banyak. Struktur ini memanfaatkan manajemen memori dinamis dan banyak digunakan untuk merepresentasikan data hierarkis, seperti data pegawai dengan data anak atau kategori dengan subkategori.
 
 ## Guided
 
