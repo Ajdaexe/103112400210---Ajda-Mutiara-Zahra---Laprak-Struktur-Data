@@ -6,96 +6,121 @@ Multi Linked List merupakan struktur data non-linear yang terdiri dari beberapa 
 
 ## Guided
 
-### 1. Tree
+### 1. MLL
 ```
 #include <iostream>
+#include <string>
 using namespace std;
 
-#define MAX 5
-
-struct Queue {
-    int data [MAX];
-    int head;
-    int tail;
+struct ChildNode
+{
+    string info;
+    ChildNode *next;
 };
 
-void createQueue (Queue &Q) {
-    Q.head = -1;
-    Q.tail = -1;
+struct ParentNode
+{
+    string info;
+    ChildNode *childHead;
+    ParentNode *next;
+};
+
+ParentNode *createParent(string info)
+{
+    ParentNode *newNode = new ParentNode;
+    newNode->info = info;
+    newNode->childHead = NULL;
+    newNode->next = NULL;
+    return newNode;
 }
 
-bool isEmpty(Queue Q) {
-    return (Q.head == -1 && Q.tail == -1);
+ChildNode *createChild(string info)
+{
+    ChildNode *newNode = new ChildNode;
+    newNode->info = info;
+    newNode->next = NULL;
+    return newNode;
 }
 
-bool isFull(Queue Q){
-    return (Q.tail == MAX - 1);
+void insertParent(ParentNode *&head, string info)
+{
+    ParentNode *newNode = createParent(info);
+    if (head == NULL)
+    {
+        head = newNode;
+    }
+    else
+    {
+        ParentNode *temp = head;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+    }
 }
 
-void printQueue (Queue Q) {
-    if (isEmpty(Q)) {
-        cout << "Queue Kosong!" << endl;
-    } else {
-        cout << "Queue : ";
-        for (int i = Q.head; i <= Q.tail; i++) {
-            cout << Q.data[i] << " ";
+void insertChild(ParentNode *head, string parentInfo, string childInfo)
+{
+    ParentNode *p = head;
+    while (p != NULL && p->info != parentInfo)
+    {
+        p = p->next;
+    }
+
+    if (p != NULL)
+    {
+        ChildNode *newChild = createChild(childInfo);
+        if (p->childHead == NULL)
+        {
+            p->childHead = newChild;
+        }
+        else 
+        {
+            ChildNode *c = p->childHead;
+            while (c->next != NULL)
+            {
+                c = c->next;
+            }
+            c->next = newChild;
+        }
+    }
+}
+
+void printAll(ParentNode *head)
+{
+    ParentNode *p = head;
+    while (p != NULL)
+    {
+        cout << p->info;
+        ChildNode *c = p->childHead;
+        if (c != NULL)
+        {
+            while (c != NULL)
+            {
+                cout << " -> " << c->info;
+                c = c->next;
+            }
         }
         cout << endl;
+        p = p->next;
     }
 }
 
-void enqueue(Queue &Q, int x){
-    if (isFull(Q)){
-        cout << " Queue penuh! tidak bisa menambah data." << endl;
-    } else {
-        if (isEmpty(Q)) {
-            Q.head = Q.tail = 0;
-        } else {
-            Q.tail++;
-        }
-        Q.data[Q.tail] = x;
-        cout << "Enqueu: "<< x << endl;
-    }
-}
+int main()
+{
+    ParentNode *list = NULL;
 
-void dequeue (Queue &Q) {
-    if (isEmpty(Q)) {
-        cout << "Queue Kosong! tidak ada data yang di hapus." << endl;
-    } else {
-        cout << "Dequeue: " << Q.data[Q.head]<< endl;
-        if (Q.head == Q.tail) {
-            Q.head = Q.tail = -1;
-        } else {
-            for (int i = Q.head; i < Q.tail; i++){
-                Q.data[i] = Q.data[i+1];
-            }
-            Q.tail--;
-        }
-    }
-}
+    insertParent(list, "Parent Node 1");
+    insertParent(list, "Parent Node 2");
 
-int main() {
-    Queue Q;
-    createQueue;
+    insertChild(list, "Parent Node 1", "Child Node A");
+    insertChild(list, "Parent Node 1", "Child Node B");
+    insertChild(list, "Parent Node 2", "Child Node C");
 
-    enqueue(Q, 5);
-    enqueue(Q, 2);
-    enqueue(Q, 7);
-    printQueue(Q);
-
-    dequeue(Q);
-    printQueue(Q);
-
-    enqueue(Q, 4);
-    enqueue(Q, 9);
-    printQueue(Q);
-
-    dequeue(Q);
-    dequeue(Q);
-    printQueue(Q);
+    printAll(list);
 
     return 0;
-
 }
 ```
 
