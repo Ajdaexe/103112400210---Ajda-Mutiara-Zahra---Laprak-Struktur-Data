@@ -469,7 +469,7 @@ int main() {
 }
 ```
 > Output
-> ![Screenshot bagian 1](OUTPUT/OUPUT123.PNG)
+> ![Screenshot bagian 1](ouput/Screenshot 2025-12-16 122924.png)
 
 
 Soal 1 Program di atas adalah program C++ yang mengimplementasikan Circular Linked List untuk menyimpan data mahasiswa. Program ini menggunakan pointer dan memori dinamis untuk melakukan operasi insert, pencarian data, dan penampilan isi list secara melingkar.
