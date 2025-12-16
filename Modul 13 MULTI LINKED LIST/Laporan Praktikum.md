@@ -130,72 +130,103 @@ Program di atas adalah program C++ yang digunakan untuk mengimplementasikan stru
 ## Unguided
 
 ### Soal 1
-Buatlah ADT Binary Search Tree menggunakan Linked list sebagai berikut di dalam file
-“bstree.h”:
-Type infotype: integer
-Type address : pointer to Node
-Type Node: <
+Buatlah ADT Multi Linked list sebagai berikut di dalam file “circularlist.h”:
+
+Type infotype : mahasiswa <
+Nama:string
+Nim:string
+Jenis_kelamin:char
+Ipk:float>
+Type address : pointer to ElmList
+Type ElmList <
 info : infotype
-left, right : address
->
-function alokasi( x : infotype ) → address
-procedure insertNode( input/output root : address,
-input x : infotype )
-function findNode( x : infotype, root : address )→address
-procedure printInorder( input root : address )
-Buatlah implementasi ADT Binary Search Tree pada file “bstree.cpp” dan cobalah hasil
-implementasi ADT pada file “main.cpp”
-#include <iostream>
-#include "bstree.h"
-using namespace std;
-int main() {
-cout << "Hello World" << endl;
-address root = Nil;
-insertNode(root,1);
-insertNode(root,2);
-insertNode(root,6);
-insertNode(root,4);
-insertNode(root,5);
-insertNode(root,3);
-insertNode(root,6);
-insertNode(root,7);
-InOrder(root);
-return 0;
+next :address>
+Type List <
+First : address>
 
-### Soal 2
-Buatlah fungsi untuk menghitung jumlah node dengan fungsi berikut.
-➢ fungsi hitungJumlahNode( root:address ) : integer
-/* fungsi mengembalikan integer banyak node yang ada di dalam BST*/
-➢ fungsi hitungTotalInfo( root:address, start:integer ) : integer
-/* fungsi mengembalikan jumlah (total) info dari node-node yang ada di dalam BST*/
-➢ fungsi hitungKedalaman( root:address, start:integer ) : integer
-Gambar 10-15 Output
+• Terdapat 11 fungsi/prosedur untuk ADT circularlist
+o procedure CreateList( input/output L : List )
+o function alokasi( x : infotype ) → address
+o procedure dealokasi( input/output t P : address )
+o procedure insertFirst( input/output L : List, input P : address )
+o procedure insertAfter( input/output L : List, input Prec : address, P : address)
+o procedure insertLast( input/output L : List, input P : address )
+o procedure deleteFirst( input/output L : List, input/output P : address )
+o procedure deleteAfter( input/output L : List, input Prec : address,
+input/output t P : address )
+o procedure deleteLast( input/output L : List, P : address )
+o function findElm( L : List, x : infotype ) → address
+o procedure printInfo( input L : List )
 
-STRUKTUR DATA 89
-/* fungsi rekursif mengembalikan integer kedalaman maksimal dari binary tree */
-int main() {
-cout << "Hello World" << endl;
-address root = Nil;
-insertNode(root,1);
-insertNode(root,2);
-insertNode(root,6);
-insertNode(root,4);
-insertNode(root,5);
-insertNode(root,3);
-insertNode(root,6);
-insertNode(root,7);
-InOrder(root);
-cout<<"\n";
-cout<<"kedalaman : "<<hitungKedalaman(root,0)<<endl;
-cout<<"jumlah Node : "<<hitungNode(root)<<endl;
-cout<<"total : "<<hitungTotal(root)<<endl;
-return 0;
+Keterangan :
+• fungsi findElm mencari elemen di dalam list L berdasarkan nim
+o fungsi mengembalikan elemen dengan dengan info nim == x.nim jika ditemukan
+
+STRUKTUR DATA 100
+o fungsi mengembalikan NIL jika tidak ditemukan
+
+Gambar 13-8 Ilustrasi data
+
+Buatlah implementasi ADT Doubly Linked list pada file “circularlist.cpp”. Tambahkan fungsi/prosedur
+berikut pada file “main.cpp”.
+• fungsi create ( in nama, nim : string, jenis_kelamin : char, ipk : float)
+o fungsi disediakan, ketik ulang code yang diberikan
+o fungsi mengalokasikan sebuah elemen list dengan info sesuai input
+address createData(string nama, string nim, char jenis_kelamin, float ipk)
+{
+/**
+* PR : mengalokasikan sebuah elemen list dengan info dengan info sesuai input
+* FS : address P menunjuk elemen dengan info sesuai input
+*/
+infotype x;
+address P;
+x.nama = nama;
+x.nim = nim;
+x.jenis_kelamin = jenis_kelamin;
+x.ipk = ipk;
+P = alokasi(x);
+return P;
 }
 
-### Soal 3
-Print tree secara pre-order dan post-order.
+Gambar 13-9 Fungsi create
+Cobalah hasil implementasi ADT pada file “main.cpp”
+int main()
+{
+List L, A, B, L2;
+address P1 = Nil;
+address P2 = Nil;
+infotype x;
+createList(L);
+cout<<"coba insert first, last, dan after"<<endl;
+P1 = createData("Danu", "04", 'l', 4.0);
+insertFirst(L,P1);
+P1 = createData("Fahmi", "06", 'l',3.45);
+insertLast(L,P1);
+P1 = createData("Bobi", "02", 'l',3.71);
 
-bstree.h
+STRUKTUR DATA 101
+insertFirst(L,P1);
+P1 = createData("Ali", "01", 'l', 3.3);
+insertFirst(L,P1);
+P1 = createData("Gita", "07", 'p', 3.75);
+insertLast(L,P1);
+x.nim = "07";
+P1 = findElm(L,x);
+P2 = createData("Cindi", "03", 'p', 3.5);
+insertAfter(L, P1, P2);
+x.nim = "02";
+P1 = findElm(L,x);
+P2 = createData("Hilmi", "08", 'p', 3.3);
+insertAfter(L, P1, P2);
+x.nim = "04";
+P1 = findElm(L,x);
+P2 = createData("Eli", "05", 'p', 3.4);
+insertAfter(L, P1, P2);
+printInfo(L);
+return 0;
+
+
+circularlist.h
 ```
 #ifndef BSTREE_H
 #define BSTREE_H
