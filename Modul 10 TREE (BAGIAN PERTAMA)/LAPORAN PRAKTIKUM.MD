@@ -328,9 +328,8 @@ int main() {
 }
 ```
 > Output
-> ![Screenshot bagian 1](OUTPUT/output1.png)
-> ![Screenshot bagian 2](OUTPUT/output2.png)
-> ![Screenshot bagian 3](OUTPUT/output3.png)
+> ![Screenshot bagian 1](OUTPUT/OUPUT123.PNG)
+
 
 Soal 1 Program di atas digunakan untuk membuat dan mengimplementasikan Binary Search Tree menggunakan linked list, yang mencakup proses alokasi node, penyisipan data ke dalam tree sesuai aturan BST, serta penampilan data menggunakan traversal inorder sehingga data ditampilkan dalam urutan terurut.
 
