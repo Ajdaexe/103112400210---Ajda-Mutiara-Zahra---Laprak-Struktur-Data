@@ -228,114 +228,177 @@ return 0;
 
 circularlist.h
 ```
-#ifndef BSTREE_H
-#define BSTREE_H
+#ifndef CIRCULARLIST_H
+#define CIRCULARLIST_H
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-typedef int infotype;
-typedef struct Node *address;
-
-struct Node {
-    infotype info;
-    address left;
-    address right;
+struct Mahasiswa {
+    string nama;
+    string nim;
+    char jenis_kelamin;
+    float ipk;
 };
 
-// LATIHAN 1
+typedef Mahasiswa infotype;
+typedef struct ElmList *address;
+
+struct ElmList {
+    infotype info;
+    address next;
+};
+
+struct List {
+    address first;
+};
+
+void createList(List &L);
 address alokasi(infotype x);
-void insertNode(address &root, infotype x);
-void printInorder(address root);
+void dealokasi(address P);
 
-// LATIHAN 2
-int hitungJumlahNode(address root);
-int hitungTotalInfo(address root);
-int hitungKedalaman(address root, int start);
+void insertFirst(List &L, address P);
+void insertLast(List &L, address P);
+void insertAfter(List &L, address Prec, address P);
 
-// LATIHAN 3
-void printPreOrder(address root);
-void printPostOrder(address root);
+void deleteFirst(List &L, address &P);
+void deleteLast(List &L, address &P);
+void deleteAfter(List &L, address Prec, address &P);
+
+address findElm(List L, string nim);
+void printInfo(List L);
 
 #endif
 ```
 
-bstree.cpp
+circularlist.cpp
 ```
-#include "bstree.h"
+#include "circularlist.h"
 
-// LATIHAN 1
+void createList(List &L) {
+    L.first = NULL;
+}
+
 address alokasi(infotype x) {
-    address newNode = new Node;
-    newNode->info = x;
-    newNode->left = NULL;
-    newNode->right = NULL;
-    return newNode;
+    address P = new ElmList;
+    P->info = x;
+    P->next = NULL;
+    return P;
 }
 
-void insertNode(address &root, infotype x) {
-    if (root == NULL) {
-        root = alokasi(x);
+void dealokasi(address P) {
+    delete P;
+}
+
+void insertFirst(List &L, address P) {
+    if (L.first == NULL) {
+        L.first = P;
+        P->next = L.first;
     } else {
-        if (x < root->info) {
-            insertNode(root->left, x);
-        } else if (x > root->info) {
-            insertNode(root->right, x);
+        address last = L.first;
+        while (last->next != L.first) {
+            last = last->next;
         }
+        P->next = L.first;
+        last->next = P;
+        L.first = P;
     }
 }
 
-void printInorder(address root) {
-    if (root != NULL) {
-        printInorder(root->left);
-        cout << root->info << " - ";
-        printInorder(root->right);
-    }
-}
-
-// LATIHAN 2
-int hitungJumlahNode(address root) {
-    if (root == NULL) {
-        return 0;
-    }
-    return 1 + hitungJumlahNode(root->left) + hitungJumlahNode(root->right);
-}
-
-int hitungTotalInfo(address root) {
-    if (root == NULL) {
-        return 0;
-    }
-    return root->info + hitungTotalInfo(root->left) + hitungTotalInfo(root->right);
-}
-
-int hitungKedalaman(address root, int start) {
-    if (root == NULL) {
-        return start;
-    }
-    int kiri = hitungKedalaman(root->left, start + 1);
-    int kanan = hitungKedalaman(root->right, start + 1);
-
-    if (kiri > kanan) {
-        return kiri;
+void insertLast(List &L, address P) {
+    if (L.first == NULL) {
+        insertFirst(L, P);
     } else {
-        return kanan;
+        address last = L.first;
+        while (last->next != L.first) {
+            last = last->next;
+        }
+        last->next = P;
+        P->next = L.first;
     }
 }
 
-// LATIHAN 3
-void printPreOrder(address root) {
-    if (root != NULL) {
-        cout << root->info << " - ";
-        printPreOrder(root->left);
-        printPreOrder(root->right);
+void insertAfter(List &L, address Prec, address P) {
+    if (Prec != NULL) {
+        P->next = Prec->next;
+        Prec->next = P;
     }
 }
 
-void printPostOrder(address root) {
-    if (root != NULL) {
-        printPostOrder(root->left);
-        printPostOrder(root->right);
-        cout << root->info << " - ";
+void deleteFirst(List &L, address &P) {
+    if (L.first == NULL) {
+        P = NULL;
+    } else if (L.first->next == L.first) {
+        P = L.first;
+        L.first = NULL;
+    } else {
+        address last = L.first;
+        while (last->next != L.first) {
+            last = last->next;
+        }
+        P = L.first;
+        L.first = L.first->next;
+        last->next = L.first;
+        P->next = NULL;
+    }
+}
+
+void deleteLast(List &L, address &P) {
+    if (L.first == NULL) {
+        P = NULL;
+    } else if (L.first->next == L.first) {
+        deleteFirst(L, P);
+    } else {
+        address last = L.first;
+        address prevLast = NULL;
+        while (last->next != L.first) {
+            prevLast = last;
+            last = last->next;
+        }
+        P = last;
+        prevLast->next = L.first;
+        P->next = NULL;
+    }
+}
+
+void deleteAfter(List &L, address Prec, address &P) {
+    if (Prec != NULL && Prec->next != L.first) {
+        P = Prec->next;
+        Prec->next = P->next;
+        P->next = NULL;
+    } else if (Prec->next == L.first) {
+        deleteFirst(L, P);
+    }
+}
+
+address findElm(List L, string nim) {
+    if (L.first == NULL) return NULL;
+    
+    address P = L.first;
+    do {
+        if (P->info.nim == nim) {
+            return P;
+        }
+        P = P->next;
+    } while (P != L.first);
+    
+    return NULL;
+}
+
+void printInfo(List L) {
+    if (L.first == NULL) {
+        cout << "List Kosong" << endl;
+    } else {
+        address P = L.first;
+        do {
+            cout << "Nama : " << P->info.nama << endl;
+            cout << "NIM  : " << P->info.nim << endl;
+            cout << "L/P  : " << P->info.jenis_kelamin << endl;
+            cout << "IPK  : " << P->info.ipk << endl;
+            cout << "-----------------------" << endl;
+            P = P->next;
+        } while (P != L.first);
     }
 }
 ```
@@ -343,42 +406,64 @@ void printPostOrder(address root) {
 main.cpp
 ```
 #include <iostream>
-#include "bstree.h"
+#include "circularlist.h"
 
 using namespace std;
 
+address createData(string nama, string nim, char jenis_kelamin, float ipk) {
+    infotype x;
+    address P;
+    x.nama = nama;
+    x.nim = nim;
+    x.jenis_kelamin = jenis_kelamin;
+    x.ipk = ipk;
+    P = alokasi(x);
+    return P;
+}
+
 int main() {
-    cout << "Hello World!" << endl;
+    List L;
+    address P1 = NULL;
+    address P2 = NULL;
     
-    address root = NULL;
+    createList(L);
 
-    // LATIHAN 1
-    insertNode(root, 1);
-    insertNode(root, 2);
-    insertNode(root, 6);
-    insertNode(root, 4);
-    insertNode(root, 5);
-    insertNode(root, 3);
-    insertNode(root, 6);
-    insertNode(root, 7);
+    cout << "coba insert first, last, dan after" << endl;
+    
+    P1 = createData("Danu", "04", 'L', 4.0);
+    insertFirst(L, P1);
+    
+    P1 = createData("Ali", "01", 'L', 3.3);
+    insertFirst(L, P1);
+    
+    P1 = createData("Bobi", "02", 'L', 3.71);
+    insertLast(L, P1);
+    
+    P1 = createData("Gita", "07", 'P', 3.75);
+    insertLast(L, P1);
 
-    cout << "InOrder   : ";
-    printInorder(root);
-    cout << endl;
+    address cari = findElm(L, "07");
+    if (cari != NULL) {
+        P2 = createData("Cindi", "03", 'P', 3.5);
+        insertAfter(L, cari, P2);
+    }
 
-    // LATIHAN 2
-    cout << "kedalaman : " << hitungKedalaman(root, 0) << endl;
-    cout << "jumlah node : " << hitungJumlahNode(root) << endl;
-    cout << "total : " << hitungTotalInfo(root) << endl;
+    cari = findElm(L, "02");
+    if (cari != NULL) {
+        P2 = createData("Hilmi", "08", 'L', 3.3);
+        insertAfter(L, cari, P2);
+    }
 
-    // LATIHAN 3
-    cout << "\nPreOrder  : ";
-    printPreOrder(root);
-    cout << endl;
+    cari = findElm(L, "04");
+    if (cari != NULL) {
+        P2 = createData("Eli", "05", 'P', 3.4);
+        insertAfter(L, cari, P2);
+    }
+    
+    P1 = createData("Fahmi", "06", 'L', 3.45);
+    insertLast(L, P1);
 
-    cout << "PostOrder : ";
-    printPostOrder(root);
-    cout << endl;
+    printInfo(L);
 
     return 0;
 }
@@ -387,11 +472,7 @@ int main() {
 > ![Screenshot bagian 1](OUTPUT/OUPUT123.PNG)
 
 
-Soal 1 Program di atas digunakan untuk membuat dan mengimplementasikan Binary Search Tree menggunakan linked list, yang mencakup proses alokasi node, penyisipan data ke dalam tree sesuai aturan BST, serta penampilan data menggunakan traversal inorder sehingga data ditampilkan dalam urutan terurut.
-
-Soal 2 Program di atas digunakan untuk menghitung karakteristik dari Binary Search Tree, yaitu jumlah node, total nilai seluruh node, dan kedalaman maksimum tree dengan memanfaatkan fungsi rekursif pada setiap subtree.
-
-Soal 3 Program di atas digunakan untuk menampilkan isi Binary Search Tree menggunakan traversal preorder dan postorder untuk menunjukkan perbedaan urutan kunjungan node dalam struktur tree.
+Soal 1 Program di atas adalah program C++ yang mengimplementasikan Circular Linked List untuk menyimpan data mahasiswa. Program ini menggunakan pointer dan memori dinamis untuk melakukan operasi insert, pencarian data, dan penampilan isi list secara melingkar.
 
 ## Referensi
 
