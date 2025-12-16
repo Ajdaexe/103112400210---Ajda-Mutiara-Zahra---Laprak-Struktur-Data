@@ -2,11 +2,11 @@
 <p align="center">Ajda Mutiara Zahra - 103112400210</p>
 
 ## Dasar Teori
-Queue merupakan salah satu struktur data linear yang bekerja berdasarkan prinsip FIFO (First In First Out), di mana elemen yang pertama kali masuk akan menjadi elemen pertama yang keluar. Konsep ini mirip dengan antrean di dunia nyata, seperti antrean pembelian tiket, di mana orang yang datang lebih awal akan dilayani lebih dulu. Queue dapat diimplementasikan menggunakan array maupun linked list, dengan dua operasi utama yaitu enqueue untuk menambahkan elemen di bagian belakang (tail) dan dequeue untuk menghapus elemen di bagian depan (head). Selain itu, terdapat operasi pendukung seperti isEmpty() untuk memeriksa apakah queue kosong, isFull() untuk memeriksa penuh tidaknya kapasitas, dan printQueue() untuk menampilkan isi antrian. Struktur data queue banyak digunakan dalam berbagai kasus pemrograman seperti penjadwalan proses, manajemen buffer, dan sistem antrian data.
+Tree merupakan struktur data non-linear yang digunakan untuk merepresentasikan data secara hierarkis, di mana setiap elemen disebut node dan saling terhubung melalui relasi parent dan child, dengan satu node utama sebagai root. Salah satu jenis tree yang sering digunakan adalah Binary Search Tree (BST), yaitu binary tree yang memiliki aturan bahwa nilai pada subtree kiri harus lebih kecil dari node induk, sedangkan nilai pada subtree kanan harus lebih besar, sehingga memudahkan proses pencarian, penyisipan, dan pengolahan data. Implementasi tree sangat erat kaitannya dengan konsep rekursif, karena setiap subtree memiliki struktur yang sama dengan tree utama, sehingga operasi seperti insert, traversal, perhitungan jumlah node, dan kedalaman tree dapat dilakukan dengan fungsi yang memanggil dirinya sendiri sampai mencapai kondisi dasar (base case). Traversal pada tree merupakan proses mengunjungi seluruh node dengan urutan tertentu, seperti inorder, preorder, dan postorder, yang masing-masing memiliki kegunaan berbeda dalam pengolahan dan penampilan data.
 
 ## Guided
 
-### 1. Queue
+### 1. Tree
 ```
 #include <iostream>
 using namespace std;
@@ -100,167 +100,186 @@ int main() {
 ```
 
 Penjelasan Program :
-Program di atas adalah implementasi struktur data queue menggunakan array dengan kapasitas maksimal 5 elemen. Queue diatur dengan dua indeks, yaitu head dan tail, yang menandakan posisi data terdepan dan data terakhir. Program menyediakan fungsi enqueue untuk menambah data ke belakang queue dan dequeue untuk menghapus data dari depan queue sesuai prinsip FIFO. Selain itu, ada fungsi isEmpty untuk mengecek apakah queue kosong, isFull untuk mengecek apakah queue penuh, dan printQueue untuk menampilkan isi queue.
-
+Program di atas adalah program C++ yang digunakan untuk mengimplementasikan struktur data Binary Search Tree (BST) dengan operasi dasar seperti insert, search, update, delete, dan traversal. Program mendefinisikan node dengan dua anak (kiri dan kanan), kemudian menggunakan fungsi rekursif untuk menyisipkan data sesuai aturan BST, mencari data, menghapus node berdasarkan jumlah anaknya, serta memperbarui data dengan cara menghapus nilai lama dan menambahkan nilai baru.
 
 ## Unguided
 
 ### Soal 1
-
-Buatlah ADT Queue menggunakan ARRAY sebagai berikut di dalam file “queue.h”:
+Buatlah ADT Binary Search Tree menggunakan Linked list sebagai berikut di dalam file
+“bstree.h”:
 Type infotype: integer
-Type Queue: <
-info : array [5] of infotype {index array dalam C++
-dimulai dari 0}
-head, tail : integer
+Type address : pointer to Node
+Type Node: <
+info : infotype
+left, right : address
 >
-procedure CreateQueue (input/output Q: Queue)
-function isEmptyQueue (Q: Queue) → boolean
-function isFullQueue (Q: Queue) → boolean
-procedure enqueue (input/output Q: Queue, input x: infotype)
-function dequeue (input/output Q: Queue) → infotype
-procedure printInfo (input Q: Queue)
-Buatlah implementasi ADT Queue pada file “queue.cpp” dengan menerapkan mekanisme
-queue Alternatif 1 (head diam, tail bergerak).
+function alokasi( x : infotype ) → address
+procedure insertNode( input/output root : address,
+input x : infotype )
+function findNode( x : infotype, root : address )→address
+procedure printInorder( input root : address )
+Buatlah implementasi ADT Binary Search Tree pada file “bstree.cpp” dan cobalah hasil
+implementasi ADT pada file “main.cpp”
+#include <iostream>
+#include "bstree.h"
+using namespace std;
 int main() {
 cout << "Hello World" << endl;
-Queue Q;
-createQueue(Q);
-cout<<"----------------------"<<endl;
-cout<<" H - T \t | Queue info"<<endl;
-cout<<"----------------------"<<endl;
-printInfo(Q);
-enqueue(Q,5); printInfo(Q);
-enqueue(Q,2); printInfo(Q);
-enqueue(Q,7); printInfo(Q);
-dequeue(Q); printInfo(Q);
-enqueue(Q,4); printInfo(Q);
-dequeue(Q); printInfo(Q);
-dequeue(Q); printInfo(Q);
+address root = Nil;
+insertNode(root,1);
+insertNode(root,2);
+insertNode(root,6);
+insertNode(root,4);
+insertNode(root,5);
+insertNode(root,3);
+insertNode(root,6);
+insertNode(root,7);
+InOrder(root);
 return 0;
 
 ### Soal 2
-Buatlah implementasi ADT Queue pada file “queue.cpp” dengan menerapkan mekanisme
-queue Alternatif 2 (head bergerak, tail bergerak).
+Buatlah fungsi untuk menghitung jumlah node dengan fungsi berikut.
+➢ fungsi hitungJumlahNode( root:address ) : integer
+/* fungsi mengembalikan integer banyak node yang ada di dalam BST*/
+➢ fungsi hitungTotalInfo( root:address, start:integer ) : integer
+/* fungsi mengembalikan jumlah (total) info dari node-node yang ada di dalam BST*/
+➢ fungsi hitungKedalaman( root:address, start:integer ) : integer
+Gambar 10-15 Output
+
+STRUKTUR DATA 89
+/* fungsi rekursif mengembalikan integer kedalaman maksimal dari binary tree */
+int main() {
+cout << "Hello World" << endl;
+address root = Nil;
+insertNode(root,1);
+insertNode(root,2);
+insertNode(root,6);
+insertNode(root,4);
+insertNode(root,5);
+insertNode(root,3);
+insertNode(root,6);
+insertNode(root,7);
+InOrder(root);
+cout<<"\n";
+cout<<"kedalaman : "<<hitungKedalaman(root,0)<<endl;
+cout<<"jumlah Node : "<<hitungNode(root)<<endl;
+cout<<"total : "<<hitungTotal(root)<<endl;
+return 0;
+}
 
 ### Soal 3
-Buatlah implementasi ADT Queue pada file “queue.cpp” dengan menerapkan mekanisme
-queue Alternatif 3 (head dan tail berputar).
+Print tree secara pre-order dan post-order.
 
-queue.h
+bstree.h
 ```
-#ifndef QUEUE_H_INCLUDED
-#define QUEUE_H_INCLUDED
+#ifndef BSTREE_H
+#define BSTREE_H
 
 #include <iostream>
 using namespace std;
 
-#define MAX 5
 typedef int infotype;
+typedef struct Node *address;
 
-struct Queue {
-    infotype info[MAX];
-    int head;
-    int tail;
+struct Node {
+    infotype info;
+    address left;
+    address right;
 };
 
-void CreateQueue(Queue &Q);
-bool isEmptyQueue(Queue Q);
-bool isFullQueue(Queue Q);
-void enqueue(Queue &Q, infotype x);
-void dequeue(Queue &Q);
-void printInfo(Queue Q);
+// LATIHAN 1
+address alokasi(infotype x);
+void insertNode(address &root, infotype x);
+void printInorder(address root);
+
+// LATIHAN 2
+int hitungJumlahNode(address root);
+int hitungTotalInfo(address root);
+int hitungKedalaman(address root, int start);
+
+// LATIHAN 3
+void printPreOrder(address root);
+void printPostOrder(address root);
 
 #endif
 ```
 
-queue.cpp
+bstree.cpp
 ```
-#include "queue.h"
+#include "bstree.h"
 
-void CreateQueue(Queue &Q) {
-    Q.head = -1;
-    Q.tail = -1;
+// LATIHAN 1
+address alokasi(infotype x) {
+    address newNode = new Node;
+    newNode->info = x;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
 }
 
-bool isEmptyQueue(Queue Q) {
-    return (Q.head == -1 && Q.tail == -1);
-}
-
-bool isFullQueue(Queue Q) {
-    return (Q.tail == MAX - 1);
-}
-
-void enqueue(Queue &Q, infotype x) {
-    if (isFullQueue(Q)) {
-        cout << "Queue penuh! tidak bisa menambah data." << endl;
+void insertNode(address &root, infotype x) {
+    if (root == NULL) {
+        root = alokasi(x);
     } else {
-        if (isEmptyQueue(Q)) {
-            Q.head = 0; 
-        }
-        Q.tail++; 
-        Q.info[Q.tail] = x;
-        cout << "Enqueue: " << x << endl;
-    }
-}
-
-void dequeue(Queue &Q) {
-    if (isEmptyQueue(Q)) {
-        cout << "Queue Kosong! tidak ada data yang di hapus." << endl;
-    } else {
-        infotype temp = Q.info[Q.head];
-        cout << "Dequeue: " << temp << endl;
-
-        if (Q.head == Q.tail) {
-            CreateQueue(Q);
-        } else {
-            for (int i = Q.head; i < Q.tail; i++) {
-                Q.info[i] = Q.info[i + 1];
-            }
-            Q.tail--;
+        if (x < root->info) {
+            insertNode(root->left, x);
+        } else if (x > root->info) {
+            insertNode(root->right, x);
         }
     }
 }
 
-//no 1
-// void printInfo(Queue Q) {
-//     if (isEmptyQueue(Q)) {
-//         cout << "empty queue" << endl;
-//     } else {
-//         cout << "Queue info : ";
-//         for (int i = Q.head; i <= Q.tail; i++) {
-//             cout << Q.info[i] << " ";
-//         }
-//         cout << endl;
-//     }
-// }
+void printInorder(address root) {
+    if (root != NULL) {
+        printInorder(root->left);
+        cout << root->info << " - ";
+        printInorder(root->right);
+    }
+}
 
-//no 2
-// void printInfo(Queue Q) {
-//     if (isEmptyQueue(Q)) {
-//         cout << ">> Antrian sekarang kosong." << endl;
-//     } else {
-//         cout << ">> Isi Antrian:  ";
-//         for (int i = Q.head; i <= Q.tail; i++) {
-//             cout << Q.info[i] << " ";
-//         }
-//         cout << endl;
-//     }
-// }
+// LATIHAN 2
+int hitungJumlahNode(address root) {
+    if (root == NULL) {
+        return 0;
+    }
+    return 1 + hitungJumlahNode(root->left) + hitungJumlahNode(root->right);
+}
 
-// no 3
-void printInfo(Queue Q) { 
-    if (isEmptyQueue(Q)) {
-        cout << ">> Antrian sekarang kosong." << endl;
+int hitungTotalInfo(address root) {
+    if (root == NULL) {
+        return 0;
+    }
+    return root->info + hitungTotalInfo(root->left) + hitungTotalInfo(root->right);
+}
+
+int hitungKedalaman(address root, int start) {
+    if (root == NULL) {
+        return start;
+    }
+    int kiri = hitungKedalaman(root->left, start + 1);
+    int kanan = hitungKedalaman(root->right, start + 1);
+
+    if (kiri > kanan) {
+        return kiri;
     } else {
-        cout << ">> Isi Antrian:  ";
-        int i = Q.head;
-        while (true) {
-            cout << Q.info[i] << " ";
-            if (i == Q.tail) break;
-            i = (i + 1) % MAX; 
-        }
-        cout << endl;
+        return kanan;
+    }
+}
+
+// LATIHAN 3
+void printPreOrder(address root) {
+    if (root != NULL) {
+        cout << root->info << " - ";
+        printPreOrder(root->left);
+        printPreOrder(root->right);
+    }
+}
+
+void printPostOrder(address root) {
+    if (root != NULL) {
+        printPostOrder(root->left);
+        printPostOrder(root->right);
+        cout << root->info << " - ";
     }
 }
 ```
@@ -268,61 +287,58 @@ void printInfo(Queue Q) {
 main.cpp
 ```
 #include <iostream>
-#include "queue.h"
+#include "bstree.h"
 
 using namespace std;
 
 int main() {
-    Queue Q;
-    CreateQueue(Q);
+    cout << "Hello World!" << endl;
+    
+    address root = NULL;
 
-    cout << "[Keadaan Awal]" << endl;
-    printInfo(Q);
+    // LATIHAN 1
+    insertNode(root, 1);
+    insertNode(root, 2);
+    insertNode(root, 6);
+    insertNode(root, 4);
+    insertNode(root, 5);
+    insertNode(root, 3);
+    insertNode(root, 6);
+    insertNode(root, 7);
 
-    cout << "\n[Enqueue 5]" << endl;
-    enqueue(Q, 5);
-    printInfo(Q);
+    cout << "InOrder   : ";
+    printInorder(root);
+    cout << endl;
 
-    cout << "\n[Enqueue 2]" << endl;
-    enqueue(Q, 2);
-    printInfo(Q);
+    // LATIHAN 2
+    cout << "kedalaman : " << hitungKedalaman(root, 0) << endl;
+    cout << "jumlah node : " << hitungJumlahNode(root) << endl;
+    cout << "total : " << hitungTotalInfo(root) << endl;
 
-    cout << "\n[Enqueue 7]" << endl;
-    enqueue(Q, 7);
-    printInfo(Q);
+    // LATIHAN 3
+    cout << "\nPreOrder  : ";
+    printPreOrder(root);
+    cout << endl;
 
-    cout << "\n[Dequeue]" << endl;
-    dequeue(Q);
-    printInfo(Q);
-
-    cout << "\n[Enqueue 4]" << endl;
-    enqueue(Q, 4);
-    printInfo(Q);
-
-    cout << "\n[Dequeue]" << endl;
-    dequeue(Q);
-    printInfo(Q);
-
-    cout << "\n[Dequeue]" << endl;
-    dequeue(Q);
-    printInfo(Q);
+    cout << "PostOrder : ";
+    printPostOrder(root);
+    cout << endl;
 
     return 0;
-} 
+}
 ```
 > Output
 > ![Screenshot bagian 1](OUTPUT/output1.png)
 > ![Screenshot bagian 2](OUTPUT/output2.png)
 > ![Screenshot bagian 3](OUTPUT/output3.png)
 
-Soal 1 Program di atas menggunakan metode penampilan data berdasarkan pendekatan queue Alternatif 1, yaitu head berada di posisi tetap dan hanya tail yang bergerak setiap kali elemen ditambahkan. Ketika elemen dihapus, data digeser ke kiri (shifting) agar elemen tetap berurutan mulai dari indeks awal.
+Soal 1 Program di atas digunakan untuk membuat dan mengimplementasikan Binary Search Tree menggunakan linked list, yang mencakup proses alokasi node, penyisipan data ke dalam tree sesuai aturan BST, serta penampilan data menggunakan traversal inorder sehingga data ditampilkan dalam urutan terurut.
 
-Soal 2 Program di atas mewakili pendekatan queue Alternatif 2, yaitu baik head maupun tail dapat bergerak maju sesuai operasi yang dilakukan. Pada metode ini, saat terjadi dequeue, head tidak lagi direset menjadi 0 atau dilakukan shifting, melainkan cukup digeser satu langkah ke indeks berikutnya.
+Soal 2 Program di atas digunakan untuk menghitung karakteristik dari Binary Search Tree, yaitu jumlah node, total nilai seluruh node, dan kedalaman maksimum tree dengan memanfaatkan fungsi rekursif pada setiap subtree.
 
-Soal 3 Program di atas menggunakan pendekatan circular queue, di mana head dan tail bergerak secara melingkar menggunakan operasi (i + 1) % MAX
+Soal 3 Program di atas digunakan untuk menampilkan isi Binary Search Tree menggunakan traversal preorder dan postorder untuk menunjukkan perbedaan urutan kunjungan node dalam struktur tree.
 
 ## Referensi
 
 1. https://en.wikipedia.org/wiki/Data_structure
-2. https://journal.stiestekom.ac.id/index.php/TEKNIK/article/view/976
-3. https://jurnal.kdi.or.id/index.php/bt/article/view/1867
+2. https://www.neliti.com/publications/224902/keamanan-database-menggunakan-metode-enkripsi
