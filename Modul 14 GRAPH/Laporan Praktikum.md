@@ -515,7 +515,7 @@ int main() {
 }
 ```
 > Output
-> ![Screenshot bagian 1](ouput/Screenshot 2025-12-16 122924.png)
+> ![Screenshot bagian 1](OUTPUT/Screenshot 2025-12-20 202459.png)
 
 
 Soal 1 
