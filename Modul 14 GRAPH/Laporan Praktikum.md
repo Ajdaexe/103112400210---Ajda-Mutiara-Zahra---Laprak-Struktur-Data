@@ -518,9 +518,18 @@ int main() {
 > ![Screenshot bagian 1](ouput/Screenshot 2025-12-16 122924.png)
 
 
-Soal 1 Program di atas adalah program C++ yang mengimplementasikan Circular Linked List untuk menyimpan data mahasiswa. Program ini menggunakan pointer dan memori dinamis untuk melakukan operasi insert, pencarian data, dan penampilan isi list secara melingkar.
+Soal 1 
+Program di atas digunakan untuk membentuk struktur dasar graph dengan mendefinisikan simpul (vertex) yang merepresentasikan data ticket. Pada bagian ini, program menyediakan fungsi untuk membuat dan menyimpan node ke dalam graph secara dinamis, sehingga setiap ticket dapat direpresentasikan sebagai sebuah simpul.
+
+Soal 2
+Program di atas digunakan untuk membangun hubungan antar simpul dalam graph dengan menambahkan sisi (edge) antar data ticket. Program menghubungkan satu simpul dengan simpul lainnya sesuai relasi yang ditentukan, sehingga terbentuk keterkaitan antar ticket. Proses ini menunjukkan penerapan konsep graph berarah atau tidak berarah sesuai kebutuhan, di mana satu ticket dapat memiliki hubungan dengan lebih dari satu ticket lainnya.
+
+Soal 3
+Program di atas digunakan untuk menampilkan dan menelusuri graph yang telah terbentuk. Program menampilkan data setiap ticket beserta hubungan antar simpul yang terhubung, sehingga struktur graph dapat diamati secara keseluruhan.
+
 
 ## Referensi
 
 1. https://en.wikipedia.org/wiki/Data_structure
-2. https://www.neliti.com/publications/224902/keamanan-database-menggunakan-metode-enkripsi
+2. http://www.ijcs.net/ijcs/index.php/ijcs/article/view/4650
+3. https://teknosi.fti.unand.ac.id/index.php/teknosi/article/view/990
